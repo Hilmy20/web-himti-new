@@ -7,14 +7,13 @@ type CardCooperationProps = {
 
 export const CardCooperation = ({ image, alt }: CardCooperationProps) => {
   return (
-    <div className="bg-white bg-opacity-5 w-full h-52 rounded-md flex flex-row items-center justify-center">
+    <div className="glass-surface glass-surface-hover w-full h-44 rounded-2xl flex items-center justify-center p-6 group">
       <Image
         src={image}
-        width={0}
-        height={0}
-        sizes="100%"
+        width={140}
+        height={60}
         alt={alt}
-        className="w-48"
+        className="max-h-16 w-auto object-contain filter brightness-90 contrast-125 group-hover:brightness-100 group-hover:scale-105 transition-all duration-300"
       />
     </div>
   );

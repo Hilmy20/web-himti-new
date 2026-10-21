@@ -27,53 +27,44 @@ export default function HimtiCommitteeCards({ members }: Props) {
 
   return (
     <section className="max-w-6xl mx-auto px-4 py-10 mt-32">
-      <div className="flex flex-col items-start md:items-center">
-        <h3 className="text-brand-main font-main text-3xl md:text-4xl text-xl">
-          Pengurus HIMTI
+      <div className="flex flex-col items-start md:items-center text-center">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs text-blue-300 font-medium mb-3">
+          Kabinet Innovara
+        </div>
+        <h3 className="font-main text-3xl md:text-5xl tracking-tight text-white">
+          Pengurus <span className="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">HIMTI</span>
         </h3>
-        <p className="text-dark-dark pt-4 text-center">
+        <p className="text-gray-300/80 pt-4 max-w-2xl text-sm md:text-base leading-relaxed">
           Pengurus inti HIMTI terdiri dari ketua, wakil ketua, serta koordinator
           departemen yang memimpin berbagai bidang untuk memastikan keberjalanan
           organisasi secara profesional dan kolaboratif.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16">
         {members.map((m) => (
           <div
             key={m.id}
-            className="relative group rounded-2xl overflow-hidden cursor-pointer"
+            className="group relative rounded-3xl overflow-hidden cursor-pointer border border-white/15 bg-white/[0.03] backdrop-blur-2xl shadow-[0_16px_40px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.2)] transition-all duration-300 hover:border-white/30 hover:-translate-y-1"
             onMouseEnter={() => setHoverId(m.id)}
             onMouseLeave={() => setHoverId(null)}
           >
-            <Image
-              src={m.image}
-              alt={m.name}
-              className="w-full h-fill object-cover rounded-2xl mt-12 md:mt-0 transition duration-300 group-hover:brightness-50"
-            />
+            <div className="relative aspect-[3/4] w-full overflow-hidden">
+              <Image
+                src={m.image}
+                alt={m.name}
+                fill
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 filter brightness-95 group-hover:brightness-90"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+            </div>
 
-            {/* Tooltip hanya untuk DESKTOP */}
-            <AnimatePresence>
-              {hoverId === m.id && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="absolute inset-0 hidden md:flex flex-col items-center justify-center text-center px-4"
-                >
-                  <div className="bg-white/90 text-black px-4 py-2 rounded-xl shadow-lg">
-                    <p className="font-bold">{m.name}</p>
-                    <p className="text-sm">{m.major}</p>
-                    <p className="text-xs text-gray-200">{m.role}</p>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-
-            {/* DESKRIPSI KHUSUS MOBILE (tanpa tooltip) */}
-            <div className="md:hidden mt-6 text-center">
-              <p className="font-bold text-white text-4xl">{m.name}</p>
-              <p className="text-sm text-white">{m.major}</p>
-              <p className="text-xs text-white">{m.role}</p>
+            {/* Bottom Card Info Overlay */}
+            <div className="absolute inset-x-0 bottom-0 p-4">
+              <div className="rounded-2xl p-3 bg-black/50 backdrop-blur-xl border border-white/15 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+                <p className="font-semibold text-white text-base truncate">{m.name}</p>
+                <p className="text-xs font-medium text-blue-400">{m.role}</p>
+                <p className="text-[11px] text-gray-300 truncate mt-0.5">{m.major}</p>
+              </div>
             </div>
           </div>
         ))}
