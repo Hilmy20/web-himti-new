@@ -11,9 +11,36 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Himpunan Mahasiswa Teknik Informatika - Universitas Negeri Paramadina",
-  description: "HIMTI",
+  title: {
+    default: "HIMTI Paramadina | Himpunan Mahasiswa Teknik Informatika Universitas Paramadina",
+    template: "%s | HIMTI Paramadina",
+  },
+  description:
+    "Website resmi Himpunan Mahasiswa Teknik Informatika (HIMTI) Universitas Paramadina Kabinet Innovara. Wadah inovasi, riset, dan kolaborasi mahasiswa Teknik Informatika.",
+  keywords: [
+    "HIMTI",
+    "HIMTI Paramadina",
+    "Teknik Informatika",
+    "Universitas Paramadina",
+    "Innovara",
+    "Himti Innovara",
+  ],
+  authors: [{ name: "HIMTI Paramadina" }],
+  openGraph: {
+    title: "HIMTI Paramadina | Kabinet Innovara",
+    description:
+      "Website resmi Himpunan Mahasiswa Teknik Informatika Universitas Paramadina. Kolaborasi, inovasi, dan teknologi masa depan.",
+    url: "https://himti.paramadina.ac.id",
+    siteName: "HIMTI Paramadina",
+    locale: "id_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HIMTI Paramadina | Kabinet Innovara",
+    description:
+      "Website resmi Himpunan Mahasiswa Teknik Informatika Universitas Paramadina.",
+  },
 };
 
 export default function RootLayout({
