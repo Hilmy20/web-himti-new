@@ -11,6 +11,7 @@ import {
   Clock,
   MapPin,
   X,
+  LucideIcon,
 } from "lucide-react";
 
 interface ProgramItem {
@@ -22,7 +23,7 @@ interface ProgramItem {
   detailedInfo: string;
   dateEstimate: string;
   location: string;
-  icon: React.ComponentType<{ className?: string; size?: number }>;
+  icon: LucideIcon;
 }
 
 const programs: ProgramItem[] = [
