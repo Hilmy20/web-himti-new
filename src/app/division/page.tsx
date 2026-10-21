@@ -1,249 +1,202 @@
 "use client";
+
 import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import OrbitIcons from "@/components/orbit-icons";
 import FilterDivisi from "@/components/filter-divisi";
 import ProfileCard from "@/components/profile-card";
+import { Sparkles, Shield, DollarSign, Megaphone, Cpu, Palette, GraduationCap } from "lucide-react";
 
-function Division() {
+export default function Division() {
+  const departments = [
+    {
+      id: "department-administration",
+      name: "Department Administration",
+      icon: Shield,
+      accent: "text-blue-400",
+      description:
+        "Bertanggung jawab atas tata kelola persuratan, inventarisasi organisasi, dokumentasi legalitas, dan ketertiban administrasi harian HIMTI.",
+      imagesTop: [
+        "/images/divisi/DA_1.png",
+        "/images/divisi/DA_2.png",
+        "/images/divisi/DA_3.png",
+        "/images/divisi/DA_4.png",
+      ],
+    },
+    {
+      id: "department-financial",
+      name: "Department Financial",
+      icon: DollarSign,
+      accent: "text-emerald-400",
+      description:
+        "Mengelola sirkulasi kas, penyusunan anggaran kegiatan, transparansi keuangan himpunan, dan inisiatif pendanaan mandiri (merchandise & sponsorship).",
+      imagesTop: [
+        "/images/divisi/DF_1.png",
+        "/images/divisi/DF_2.png",
+        "/images/divisi/DF_3.png",
+        "/images/divisi/DF_4.png",
+      ],
+    },
+    {
+      id: "department-public-relations-and-media",
+      name: "Department Public Relations & Media",
+      icon: Megaphone,
+      accent: "text-purple-400",
+      description:
+        "Membangun hubungan positif dengan pihak internal dan eksternal, mengelola media sosial, publikasi informasi resmi, serta menjalin kolaborasi dengan alumni dan industri.",
+      imagesTop: [
+        "/images/divisi/DPRM_1.png",
+        "/images/divisi/DPRM_2.png",
+        "/images/divisi/DPRM_3.png",
+        "/images/divisi/DPRM_4.png",
+      ],
+      imagesBottom: [
+        "/images/divisi/DPRM_5.png",
+        "/images/divisi/DPRM_6.png",
+        "/images/divisi/DPRM_7.png",
+        "/images/divisi/DPRM_8.png",
+      ],
+    },
+    {
+      id: "department-research-Technology",
+      name: "Department Research & Technology",
+      icon: Cpu,
+      accent: "text-cyan-400",
+      description:
+        "Pusat inovasi dan eksplorasi teknologi, mengelola pengembangan platform web himpunan, riset software, dan persiapan delegasi kompetisi teknologi.",
+      imagesTop: [
+        "/images/divisi/DRT_1.png",
+        "/images/divisi/DRT_2.png",
+        "/images/divisi/DRT_3.png",
+        "/images/divisi/DRT_4.png",
+      ],
+    },
+    {
+      id: "department-creative-and-design",
+      name: "Department Creative & Design",
+      icon: Palette,
+      accent: "text-pink-400",
+      description:
+        "Merancang identitas visual HIMTI, memproduksi aset grafis, merchandise, video dokumentasi, dan meningkatkan estetika setiap publikasi dan acara.",
+      imagesTop: [
+        "/images/divisi/DCD_1.png",
+        "/images/divisi/DCD_2.png",
+        "/images/divisi/DCD_3.png",
+        "/images/divisi/DCD_4.png",
+      ],
+      imagesBottom: [
+        "/images/divisi/DCD_5.png",
+        "/images/divisi/DCD_6.png",
+        "/images/divisi/DCD_7.png",
+        "/images/divisi/DCD_8.png",
+      ],
+    },
+    {
+      id: "department-human-capital-education",
+      name: "Department Human Capital & Education",
+      icon: GraduationCap,
+      accent: "text-amber-400",
+      description:
+        "Berkomitmen memantau kapasitas anggota, menyelenggarakan bimbingan belajar koding (Kobit), workshop, dan pelatihan soft skills bagi mahasiswa Informatika.",
+      imagesTop: [
+        "/images/divisi/DHCPE_1.png",
+        "/images/divisi/DHCPE_2.png",
+        "/images/divisi/DHCPE_3.png",
+        "/images/divisi/DHCPE_4.png",
+      ],
+    },
+  ];
+
   return (
-    <div className="w-full">
-      <section className="px-4 py-24 lg:py-[150px] flex flex-col lg:flex-row items-center max-w-6xl mx-auto gap-10 relative z-10">
-        <motion.div
-          className="lg:w-1/2"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="mb-4 text-1xl lg:text-2xl font-bold !leading-snug text-gray-200">
-            2025/2026
-            <br />
-            <span className="text-[#0066FF] lg:text-6xl text-3xl font-main">
-              {" "}
-              Kabinet Innovara
-            </span>
-          </h1>
-          <p className="font-medium text-gray-200 lg:text-lg">
-            HIMTI Innovara Sebagai pilar utama kepemimpinan HIMTI, Eksekutif
-            Organisasi, terdiri dari Ketua dan Wakil Ketua, memimpin dan
-            membimbing organisasi menuju pencapaian visi dan misi yang diusung.
-            Berfungsi sebagai representasi HIMTI di berbagai forum dan
-            memastikan koordinasi efektif.
-          </p>
-        </motion.div>
-        <motion.div
-          className="rounded-3xl lg:w-2/5"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <OrbitIcons />
-        </motion.div>
+    <div className="w-full space-y-16 py-8 px-4 sm:px-6 lg:px-8">
+      {/* Hero Section */}
+      <section className="glass-surface relative rounded-[32px] p-8 sm:p-12 md:p-16 overflow-hidden">
+        <div className="absolute -top-24 -right-24 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center max-w-6xl mx-auto">
+          <motion.div
+            className="lg:col-span-7 space-y-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs font-medium text-blue-300">
+              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+              <span>Struktur Kepengurusan 2024/2025</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-main font-bold tracking-tight text-white leading-tight">
+              Departemen & Divisi <br />
+              <span className="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">
+                Kabinet Innovara
+              </span>
+            </h1>
+
+            <p className="text-gray-300/85 text-sm sm:text-base leading-relaxed font-light">
+              Struktur HIMTI Innovara terbagi menjadi 6 departemen strategis yang bekerja secara sinergis dan terintegrasi untuk mendukung pengembangan potensi seluruh mahasiswa Teknik Informatika Universitas Paramadina.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className="lg:col-span-5 flex justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <OrbitIcons />
+          </motion.div>
+        </div>
       </section>
+
+      {/* Floating Side Filter */}
       <FilterDivisi />
-      <motion.section
-        className="md:py-[150px] py-12 px-6 lg:px-0"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        id="department-administration"
-      >
-        <div className="max-w-6xl mx-auto lg:text-left text-center">
-          <h3 className="text-[#0066FF] text-3xl font-bold font-main">
-            Department Administration
-          </h3>
-          <p className="text-gray-200 text-sm mt-2 lg:w-4/5">
-            Bertanggung jawab atas administrasi harian, rapat, dan keuangan
-            organisasi, memastikan kelancaran operasional dan transparansi
-            keuangan.
-          </p>
-          <div className="bg-[#0066FF] w-40 h-1 rounded-full mt-4 mx-auto md:mx-auto lg:mx-0"></div>
-        </div>
-        <div className="flex lg:justify-start justify-center gap-6 flex-wrap max-w-6xl mx-auto my-6">
-          <ProfileCard
-            imagesTop={[
-              "/images/divisi/DA_1.png",
-              "/images/divisi/DA_2.png",
-              "/images/divisi/DA_3.png",
-              "/images/divisi/DA_4.png",
-            ]}
-          />
-        </div>
-      </motion.section>
 
-      <motion.section
-        className="md:py-[150px] py-12 px-6 lg:px-0"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        id="department-financial"
-      >
-        <div className="max-w-6xl mx-auto lg:text-left text-center">
-          <h3 className="text-[#0066FF] text-3xl font-bold font-main">
-            Department Financial
-          </h3>
-          <p className="text-gray-200 text-sm mt-2 lg:w-4/5">
-            Bertanggung jawab atas administrasi harian, rapat, dan keuangan
-            organisasi, memastikan kelancaran operasional dan transparansi
-            keuangan.
-          </p>
-          <div className="bg-[#0066FF] w-40 h-1 rounded-full mt-4 mx-auto md:mx-auto lg:mx-0"></div>
-        </div>
-        <div className="flex lg:justify-start justify-center gap-6 flex-wrap max-w-6xl mx-auto my-6">
-          <ProfileCard
-            imagesTop={[
-              "/images/divisi/DF_1.png",
-              "/images/divisi/DF_2.png",
-              "/images/divisi/DF_3.png",
-              "/images/divisi/DF_4.png",
-            ]}
-          />
-        </div>
-      </motion.section>
+      {/* Departments List */}
+      <div className="space-y-12 max-w-6xl mx-auto">
+        {departments.map((dept, idx) => {
+          const Icon = dept.icon;
+          return (
+            <motion.section
+              key={dept.id}
+              id={dept.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5 }}
+              className="glass-surface glass-surface-hover rounded-[32px] p-6 sm:p-10 space-y-8 scroll-mt-28"
+            >
+              {/* Header Divisi */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-2xl bg-white/[0.06] border border-white/15 flex items-center justify-center text-blue-400">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="text-xs uppercase font-semibold tracking-wider text-gray-400">
+                      Departemen #{idx + 1}
+                    </span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-main font-bold text-white">
+                    {dept.name}
+                  </h2>
+                  <p className="text-gray-300/80 text-sm max-w-3xl font-light leading-relaxed">
+                    {dept.description}
+                  </p>
+                </div>
+              </div>
 
-      <motion.section
-        className="md:py-[150px] py-12 px-6 lg:px-0"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        id="department-public-relations-and-media"
-      >
-        <div className="max-w-6xl mx-auto lg:text-left text-center">
-          <h3 className="text-[#0066FF] text-3xl font-bold font-main">
-            Department Public Relations and Media
-          </h3>
-          <p className="text-gray-200 text-sm mt-2 lg:w-4/5">
-            Membangun hubungan positif dengan pihak internal dan eksternal,
-            menjaga citra organisasi, dan menjalin kerjasama dengan alumni dan
-            mitra industri. Mengelola media sosial, konten situs web, dan
-            publikasi untuk menyampaikan informasi HIMTI secara efektif dan
-            membangun kehadiran digital.
-          </p>
-          <div className="bg-[#0066FF] w-40 h-1 rounded-full mt-4 mx-auto md:mx-auto lg:mx-0"></div>
-        </div>
-        <div className="flex lg:justify-start justify-center gap-6 flex-wrap max-w-6xl mx-auto my-6">
-          <ProfileCard
-            imagesTop={[
-              "/images/divisi/DPRM_1.png",
-              "/images/divisi/DPRM_2.png",
-              "/images/divisi/DPRM_3.png",
-              "/images/divisi/DPRM_4.png",
-            ]}
-            imagesBottom={[
-              "/images/divisi/DPRM_5.png",
-              "/images/divisi/DPRM_6.png",
-              "/images/divisi/DPRM_7.png",
-              "/images/divisi/DPRM_8.png",
-            ]}
-          />
-        </div>
-      </motion.section>
-
-      <motion.section
-        className="md:py-[150px] px-6 lg:px-0"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        id="department-research-Technology"
-      >
-        <div className="max-w-6xl mx-auto lg:text-left text-center">
-          <h3 className="text-[#0066FF] text-3xl font-bold font-main">
-            Department Research Technology
-          </h3>
-          <p className="text-gray-200 text-sm mt-2 lg:w-4/5">
-            Menjadi pusat inovasi dan riset, mengelola proyek riset, serta
-            mendorong partisipasi anggota dalam pengembangan teknologi.
-          </p>
-          <div className="bg-[#0066FF] w-40 h-1 rounded-full mt-4 mx-auto md:mx-auto lg:mx-0"></div>
-        </div>
-        <div className="flex lg:justify-start justify-center gap-6 flex-wrap max-w-6xl mx-auto my-6">
-          <ProfileCard
-            imagesTop={[
-              "/images/divisi/DRT_1.png",
-              "/images/divisi/DRT_2.png",
-              "/images/divisi/DRT_3.png",
-              "/images/divisi/DRT_4.png",
-            ]}
-          />
-        </div>
-      </motion.section>
-
-      <motion.section
-        className="md:py-[150px] py-12 px-6 lg:px-0"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        id="department-creative-and-design"
-      >
-        <div className="max-w-6xl mx-auto lg:text-left text-center">
-          <h3 className="text-[#0066FF] text-3xl font-bold font-main">
-            Department Creative and Design
-          </h3>
-          <p className="text-gray-200 text-sm mt-2 lg:w-4/5">
-            Bertugas merancang identitas visual HIMTI, menciptakan desain grafis
-            kreatif, dan meningkatkan daya tarik acara dan program.
-          </p>
-          <div className="bg-[#0066FF] w-40 h-1 rounded-full mt-4 mx-auto md:mx-auto lg:mx-0"></div>
-        </div>
-        <div className="flex lg:justify-start justify-center gap-6 flex-wrap max-w-6xl mx-auto my-6">
-          <ProfileCard
-            imagesTop={[
-              "/images/divisi/DCD_1.png",
-              "/images/divisi/DCD_2.png",
-              "/images/divisi/DCD_3.png",
-              "/images/divisi/DCD_4.png",
-            ]}
-            imagesBottom={[
-              "/images/divisi/DCD_5.png",
-              "/images/divisi/DCD_6.png",
-              "/images/divisi/DCD_7.png",
-              "/images/divisi/DCD_8.png",
-            ]}
-          />
-        </div>
-      </motion.section>
-
-      <motion.section
-        className="md:py-[150px] py-12 px-6 lg:px-0"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        id="department-human-capital-education"
-      >
-        <div className="max-w-6xl mx-auto lg:text-left text-center">
-          <h3 className="text-[#0066FF] text-3xl font-bold font-main">
-            Department Human Capital & Education
-          </h3>
-          <p className="text-gray-200 text-sm mt-2 lg:w-4/5">
-            Berkomitmen untuk memantau dan menganalisis kinerja seluruh anggota
-            HIMTI serta meningkatkan kualitas pendidikan dan pelatihan mahasiswa
-            Teknik Informatika, memastikan pengembangan akademis dan profesional
-            yang optimal.
-          </p>
-          <div className="bg-[#0066FF] w-40 h-1 rounded-full mt-4 mx-auto md:mx-auto lg:mx-0"></div>
-        </div>
-        <div className="flex lg:justify-start justify-center gap-6 flex-wrap max-w-6xl mx-auto my-6">
-          <ProfileCard
-            imagesTop={[
-              "/images/divisi/DHCPE_1.png",
-              "/images/divisi/DHCPE_2.png",
-              "/images/divisi/DHCPE_3.png",
-              "/images/divisi/DHCPE_4.png",
-            ]}
-          />
-        </div>
-      </motion.section>
+              {/* Anggota Card Grid */}
+              <div className="flex justify-center sm:justify-start">
+                <ProfileCard
+                  imagesTop={dept.imagesTop}
+                  imagesBottom={dept.imagesBottom}
+                />
+              </div>
+            </motion.section>
+          );
+        })}
+      </div>
     </div>
   );
 }
-
-export default Division;
