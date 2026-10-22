@@ -95,7 +95,7 @@ export default function NavigationBar() {
             </AnimatePresence>
           </div>
           <span className="font-semibold text-xs sm:text-sm tracking-wide text-white/90 group-hover:text-white transition">
-            HIMTI <span className="text-blue-400 font-bold">INNOVARA</span>
+            HIMTI <span className="text-green-500 font-bold">INNOVARA</span>
           </span>
         </Link>
 
@@ -124,7 +124,7 @@ export default function NavigationBar() {
         <div className="hidden md:flex items-center">
           <Link
             href="/contact-us"
-            className="text-xs font-medium px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white border border-white/30 shadow-[0_4px_16px_rgba(0,102,255,0.35),inset_0_1px_0_rgba(255,255,255,0.4)] hover:brightness-110 active:scale-95 transition"
+            className="text-xs font-medium px-4 py-1.5 rounded-full bg-gradient-to-r from-green-600 to-green-800 text-white border border-white/30 shadow-[0_4px_16px_rgba(42,175,21,0.35),inset_0_1px_0_rgba(255,255,255,0.4)] hover:brightness-110 active:scale-95 transition"
           >
             Aspirasi
           </Link>

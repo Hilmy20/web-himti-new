@@ -28,11 +28,11 @@ export default function HimtiCommitteeCards({ members }: Props) {
   return (
     <section className="max-w-6xl mx-auto px-4 py-10 mt-32">
       <div className="flex flex-col items-start md:items-center text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs text-blue-300 font-medium mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs text-green-400 font-medium mb-3">
           Kabinet Innovara
         </div>
         <h3 className="font-main text-3xl md:text-5xl tracking-tight text-white">
-          Pengurus <span className="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">HIMTI</span>
+          Pengurus <span className="bg-gradient-to-r from-green-500 to-green-500 bg-clip-text text-transparent">HIMTI</span>
         </h3>
         <p className="text-gray-300/80 pt-4 max-w-2xl text-sm md:text-base leading-relaxed">
           Pengurus inti HIMTI terdiri dari ketua, wakil ketua, serta koordinator
@@ -62,7 +62,7 @@ export default function HimtiCommitteeCards({ members }: Props) {
             <div className="absolute inset-x-0 bottom-0 p-4">
               <div className="rounded-2xl p-3 bg-black/50 backdrop-blur-xl border border-white/15 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
                 <p className="font-semibold text-white text-base truncate">{m.name}</p>
-                <p className="text-xs font-medium text-blue-400">{m.role}</p>
+                <p className="text-xs font-medium text-green-500">{m.role}</p>
                 <p className="text-[11px] text-gray-300 truncate mt-0.5">{m.major}</p>
               </div>
             </div>

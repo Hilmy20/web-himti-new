@@ -89,9 +89,9 @@ export default function ProgramKerjaPage() {
       case "Active":
         return "bg-emerald-500/20 text-emerald-300 border-emerald-400/30";
       case "Upcoming":
-        return "bg-blue-500/20 text-blue-300 border-blue-400/30";
+        return "bg-green-600/20 text-green-400 border-green-500/30";
       case "Scheduled":
-        return "bg-purple-500/20 text-purple-300 border-purple-400/30";
+        return "bg-green-700/20 text-green-500 border-green-600/30";
       default:
         return "bg-white/10 text-gray-300 border-white/20";
     }
@@ -101,18 +101,18 @@ export default function ProgramKerjaPage() {
     <div className="w-full space-y-16 py-8 px-4 sm:px-6 lg:px-8">
       {/* Header Banner */}
       <section className="glass-surface relative rounded-[32px] p-8 sm:p-12 md:p-16 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-80 h-80 bg-green-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-green-700/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs font-medium text-blue-300">
-            <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs font-medium text-green-400">
+            <Sparkles className="w-3.5 h-3.5 text-green-500" />
             <span>Kabinet Innovara 2024/2025</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-main font-bold tracking-tight text-white leading-tight">
             Program Kerja{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-500 to-green-500 bg-clip-text text-transparent">
               HIMTI Paramadina
             </span>
           </h1>
@@ -138,12 +138,12 @@ export default function ProgramKerjaPage() {
                 onClick={() => setSelectedProgram(program)}
                 className="glass-surface glass-surface-hover rounded-3xl p-7 sm:p-9 cursor-pointer group flex flex-col justify-between relative overflow-hidden transition-all duration-300"
               >
-                <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition duration-300 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-36 h-36 bg-green-600/10 rounded-full blur-2xl group-hover:bg-green-600/20 transition duration-300 pointer-events-none" />
 
                 <div className="space-y-6">
                   {/* Top Header */}
                   <div className="flex items-center justify-between gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-400/20 flex items-center justify-center text-blue-400 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+                    <div className="w-12 h-12 rounded-2xl bg-green-600/10 border border-green-500/20 flex items-center justify-center text-green-500 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
                       <Icon size={24} />
                     </div>
                     <div className="flex items-center gap-3">
@@ -162,10 +162,10 @@ export default function ProgramKerjaPage() {
 
                   {/* Body Content */}
                   <div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-blue-400 block mb-1">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-green-500 block mb-1">
                       {program.category}
                     </span>
-                    <h2 className="text-2xl sm:text-3xl font-bold font-main text-white group-hover:text-blue-300 transition">
+                    <h2 className="text-2xl sm:text-3xl font-bold font-main text-white group-hover:text-green-400 transition">
                       {program.title}
                     </h2>
                     <p className="mt-3 text-sm text-gray-300/80 leading-relaxed font-light">
@@ -177,10 +177,10 @@ export default function ProgramKerjaPage() {
                 {/* Footer Action */}
                 <div className="pt-8 mt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
                   <div className="flex items-center gap-2">
-                    <CalendarDays className="w-3.5 h-3.5 text-blue-400" />
+                    <CalendarDays className="w-3.5 h-3.5 text-green-500" />
                     <span>{program.dateEstimate}</span>
                   </div>
-                  <span className="inline-flex items-center gap-1.5 font-medium text-blue-400 group-hover:text-white transition">
+                  <span className="inline-flex items-center gap-1.5 font-medium text-green-500 group-hover:text-white transition">
                     <span>Lihat Detail</span>
                     <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
                   </span>
@@ -214,7 +214,7 @@ export default function ProgramKerjaPage() {
                   <h3 className="text-2xl font-bold font-main text-white pt-2">
                     {selectedProgram.title}
                   </h3>
-                  <p className="text-xs text-blue-400 uppercase tracking-wider font-semibold">
+                  <p className="text-xs text-green-500 uppercase tracking-wider font-semibold">
                     {selectedProgram.category}
                   </p>
                 </div>
@@ -231,11 +231,11 @@ export default function ProgramKerjaPage() {
 
                 <div className="rounded-2xl p-4 bg-white/[0.04] border border-white/10 space-y-2 text-xs">
                   <div className="flex items-center gap-2 text-gray-300">
-                    <Clock className="w-4 h-4 text-blue-400 shrink-0" />
+                    <Clock className="w-4 h-4 text-green-500 shrink-0" />
                     <span>Waktu: {selectedProgram.dateEstimate}</span>
                   </div>
                   <div className="flex items-center gap-2 text-gray-300">
-                    <MapPin className="w-4 h-4 text-blue-400 shrink-0" />
+                    <MapPin className="w-4 h-4 text-green-500 shrink-0" />
                     <span>Lokasi: {selectedProgram.location}</span>
                   </div>
                 </div>

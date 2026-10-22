@@ -101,7 +101,7 @@
 .glass-surface-hover:hover {
   background: rgba(255, 255, 255, 0.07);
   border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 24px 60px rgba(0, 102, 255, 0.15), inset 0 1px 1.5px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 24px 60px rgba(42, 175, 21, 0.15), inset 0 1px 1.5px rgba(255, 255, 255, 0.35);
   transform: translateY(-2px);
 }
 
@@ -111,4 +111,27 @@
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+
+/* HIMTI official palette */
+:root {
+  --himti-green: #2AAF15;
+  --himti-lime: #33CC00;
+  --himti-dark-green: #003300;
+  --himti-white: #FEFEFE;
+}
+
+html {
+  scrollbar-color: var(--himti-green) var(--himti-dark-green);
+}
+
+::selection {
+  background: rgba(51, 204, 0, 0.35);
+  color: var(--himti-white);
+}
+
+.glass-surface-hover:hover {
+  border-color: rgba(51, 204, 0, 0.35);
+  box-shadow: 0 24px 60px rgba(42, 175, 21, 0.15), inset 0 1px 1.5px rgba(255, 255, 255, 0.35);
 }

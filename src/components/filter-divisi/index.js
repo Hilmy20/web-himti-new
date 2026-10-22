@@ -55,12 +55,12 @@ export default function FilterDivisi() {
             <motion.div
               className={`
                 flex items-center gap-3 rounded-e-[50px] px-3 py-2 cursor-pointer
-                border border-blue-400
+                border border-green-500
                 overflow-hidden transition-colors duration-300
                 ${
                   isActive
-                    ? "bg-blue-500 text-white shadow-lg"
-                    : "bg-blue-100 text-blue-600"
+                    ? "bg-green-600 text-white shadow-lg"
+                    : "bg-green-200 text-green-700"
                 }
               `}
               animate={{
@@ -73,7 +73,7 @@ export default function FilterDivisi() {
                 className={`w-5 h-5 flex-shrink-0 ${
                   isActive
                     ? "text-[#DAE9FF]"
-                    : "text-blue-600 group-hover:text-blue-800"
+                    : "text-green-700 group-hover:text-green-800"
                 }`}
               />
 

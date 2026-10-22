@@ -103,12 +103,12 @@ export default function DivisionsFilter() {
                   className={`flex items-center gap-2 px-3 py-1.5 rounded-full whitespace-nowrap transition
               ${
                 selected?.id === d.id
-                  ? "bg-blue-600 text-white"
+                  ? "bg-green-700 text-white"
                   : "bg-red-500 text-white"
               }
             `}
                 >
-                  <div className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center">
+                  <div className="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center">
                     <IconComponent className="text-white w-3.5 h-3.5" />
                   </div>
 

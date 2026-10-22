@@ -67,19 +67,19 @@ export default function KontakKami() {
     <div className="w-full space-y-16 py-8 px-4 sm:px-6 lg:px-8">
       {/* Hero Contact */}
       <section className="glass-surface relative rounded-[32px] p-8 sm:p-12 md:p-16 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-80 h-80 bg-green-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-green-700/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs font-medium text-blue-300">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs font-medium text-green-400">
+              <Sparkles className="w-3.5 h-3.5 text-green-500" />
               <span>Layanan Aspirasi Mahasiswa</span>
             </div>
 
             <h1 className="font-main text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
               Innovara HIMTI Paramadina <br />
-              <span className="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-green-500 to-green-500 bg-clip-text text-transparent">
                 Siap Mendengar dan Membantu
               </span>
             </h1>
@@ -119,7 +119,7 @@ export default function KontakKami() {
       {/* Interactive Form PERASA */}
       <section className="glass-surface rounded-[32px] p-8 sm:p-12 max-w-4xl mx-auto space-y-8">
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 text-xs text-blue-300 font-medium">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 text-xs text-green-400 font-medium">
             Form PERASA (Pesan & Aspirasi)
           </div>
           <h2 className="text-2xl sm:text-3xl font-main font-bold text-white">
@@ -149,7 +149,7 @@ export default function KontakKami() {
             {/* Nama */}
             <div className="space-y-2">
               <label className="text-xs font-medium text-gray-300">
-                Nama Lengkap / Inisial <span className="text-blue-400">*</span>
+                Nama Lengkap / Inisial <span className="text-green-500">*</span>
               </label>
               <input
                 type="text"
@@ -157,7 +157,7 @@ export default function KontakKami() {
                 placeholder="Contoh: Budi Santoso"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 rounded-2xl bg-white/[0.04] border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-blue-400 focus:bg-white/[0.08] transition shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]"
+                className="w-full px-4 py-3 rounded-2xl bg-white/[0.04] border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-green-500 focus:bg-white/[0.08] transition shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]"
               />
             </div>
 
@@ -171,7 +171,7 @@ export default function KontakKami() {
                 placeholder="08123456789"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-4 py-3 rounded-2xl bg-white/[0.04] border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-blue-400 focus:bg-white/[0.08] transition shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]"
+                className="w-full px-4 py-3 rounded-2xl bg-white/[0.04] border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-green-500 focus:bg-white/[0.08] transition shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]"
               />
             </div>
           </div>
@@ -180,12 +180,12 @@ export default function KontakKami() {
             {/* Tahun Angkatan */}
             <div className="space-y-2">
               <label className="text-xs font-medium text-gray-300">
-                Tahun Angkatan <span className="text-blue-400">*</span>
+                Tahun Angkatan <span className="text-green-500">*</span>
               </label>
               <select
                 value={formData.year}
                 onChange={(e) => setFormData({ ...formData, year: e.target.value })}
-                className="w-full px-4 py-3 rounded-2xl bg-[#12141c] border border-white/15 text-white text-sm focus:outline-none focus:border-blue-400 transition"
+                className="w-full px-4 py-3 rounded-2xl bg-[#12141c] border border-white/15 text-white text-sm focus:outline-none focus:border-green-500 transition"
               >
                 <option value="2025">2025</option>
                 <option value="2024">2024</option>
@@ -199,12 +199,12 @@ export default function KontakKami() {
             {/* Jenis Perasa */}
             <div className="space-y-2">
               <label className="text-xs font-medium text-gray-300">
-                Kategori Aspirasi <span className="text-blue-400">*</span>
+                Kategori Aspirasi <span className="text-green-500">*</span>
               </label>
               <select
                 value={formData.type}
                 onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                className="w-full px-4 py-3 rounded-2xl bg-[#12141c] border border-white/15 text-white text-sm focus:outline-none focus:border-blue-400 transition"
+                className="w-full px-4 py-3 rounded-2xl bg-[#12141c] border border-white/15 text-white text-sm focus:outline-none focus:border-green-500 transition"
               >
                 {aspirasiTypes.map((type, i) => (
                   <option key={i} value={type}>
@@ -218,7 +218,7 @@ export default function KontakKami() {
           {/* Pesan */}
           <div className="space-y-2">
             <label className="text-xs font-medium text-gray-300">
-              Isi Pesan / Aspirasi <span className="text-blue-400">*</span>
+              Isi Pesan / Aspirasi <span className="text-green-500">*</span>
             </label>
             <textarea
               required
@@ -226,7 +226,7 @@ export default function KontakKami() {
               placeholder="Tuliskan aspirasi, kritik, atau ide kamu untuk HIMTI..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full px-4 py-3 rounded-2xl bg-white/[0.04] border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-blue-400 focus:bg-white/[0.08] transition shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] resize-y"
+              className="w-full px-4 py-3 rounded-2xl bg-white/[0.04] border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-green-500 focus:bg-white/[0.08] transition shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] resize-y"
             ></textarea>
           </div>
 
@@ -234,7 +234,7 @@ export default function KontakKami() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-indigo-600 border border-white/20 shadow-[0_8px_25px_rgba(0,102,255,0.4),inset_0_1px_0_rgba(255,255,255,0.4)] hover:brightness-110 active:scale-95 disabled:opacity-50 transition"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-green-600 to-green-800 border border-white/20 shadow-[0_8px_25px_rgba(42,175,21,0.4),inset_0_1px_0_rgba(255,255,255,0.4)] hover:brightness-110 active:scale-95 disabled:opacity-50 transition"
             >
               {status === "loading" ? (
                 <>
@@ -255,7 +255,7 @@ export default function KontakKami() {
       {/* Map Location */}
       <section className="glass-surface rounded-[32px] overflow-hidden p-2 sm:p-3">
         <div className="p-4 sm:p-6 pb-4">
-          <p className="text-xs uppercase font-semibold text-blue-400 tracking-wider">
+          <p className="text-xs uppercase font-semibold text-green-500 tracking-wider">
             Lokasi Kampus
           </p>
           <h3 className="text-xl font-bold text-white font-main mt-0.5">

@@ -13,7 +13,7 @@ export default function Division() {
       id: "department-administration",
       name: "Department Administration",
       icon: Shield,
-      accent: "text-blue-400",
+      accent: "text-green-500",
       description:
         "Bertanggung jawab atas tata kelola persuratan, inventarisasi organisasi, dokumentasi legalitas, dan ketertiban administrasi harian HIMTI.",
       imagesTop: [
@@ -41,7 +41,7 @@ export default function Division() {
       id: "department-public-relations-and-media",
       name: "Department Public Relations & Media",
       icon: Megaphone,
-      accent: "text-purple-400",
+      accent: "text-green-600",
       description:
         "Membangun hubungan positif dengan pihak internal dan eksternal, mengelola media sosial, publikasi informasi resmi, serta menjalin kolaborasi dengan alumni dan industri.",
       imagesTop: [
@@ -61,7 +61,7 @@ export default function Division() {
       id: "department-research-Technology",
       name: "Department Research & Technology",
       icon: Cpu,
-      accent: "text-cyan-400",
+      accent: "text-green-500",
       description:
         "Pusat inovasi dan eksplorasi teknologi, mengelola pengembangan platform web himpunan, riset software, dan persiapan delegasi kompetisi teknologi.",
       imagesTop: [
@@ -111,8 +111,8 @@ export default function Division() {
     <div className="w-full space-y-16 py-8 px-4 sm:px-6 lg:px-8">
       {/* Hero Section */}
       <section className="glass-surface relative rounded-[32px] p-8 sm:p-12 md:p-16 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-80 h-80 bg-green-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-green-700/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center max-w-6xl mx-auto">
           <motion.div
@@ -121,14 +121,14 @@ export default function Division() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs font-medium text-blue-300">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs font-medium text-green-400">
+              <Sparkles className="w-3.5 h-3.5 text-green-500" />
               <span>Struktur Kepengurusan 2024/2025</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-main font-bold tracking-tight text-white leading-tight">
               Departemen & Divisi <br />
-              <span className="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-green-500 to-green-500 bg-clip-text text-transparent">
                 Kabinet Innovara
               </span>
             </h1>
@@ -170,7 +170,7 @@ export default function Division() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
                 <div className="space-y-2">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-white/[0.06] border border-white/15 flex items-center justify-center text-blue-400">
+                    <div className="w-10 h-10 rounded-2xl bg-white/[0.06] border border-white/15 flex items-center justify-center text-green-500">
                       <Icon className="w-5 h-5" />
                     </div>
                     <span className="text-xs uppercase font-semibold tracking-wider text-gray-400">

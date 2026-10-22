@@ -25,14 +25,14 @@ const EventImage: React.FC<EventImageProps> = ({ src, alt, title, href }) => {
       {/* Liquid Glass Frosted Bottom Bar */}
       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex items-end justify-between gap-4">
         <div className="space-y-1">
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-medium tracking-wider uppercase bg-blue-500/30 border border-blue-400/40 text-blue-200 backdrop-blur-md">
+          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-medium tracking-wider uppercase bg-green-600/30 border border-green-500/40 text-green-300 backdrop-blur-md">
             Featured Event
           </span>
           <p className="text-xl sm:text-2xl font-bold text-white drop-shadow-md">
             {title}
           </p>
         </div>
-        <div className="w-11 h-11 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl flex items-center justify-center text-white shrink-0 group-hover:bg-blue-600 group-hover:border-transparent transition-all duration-300 shadow-lg">
+        <div className="w-11 h-11 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl flex items-center justify-center text-white shrink-0 group-hover:bg-green-700 group-hover:border-transparent transition-all duration-300 shadow-lg">
           <Icon
             icon={"material-symbols:arrow-right-alt"}
             className="w-5 h-5 transform -rotate-45"

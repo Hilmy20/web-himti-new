@@ -49,7 +49,7 @@ export default function OrbitIcons() {
           ease: "linear",
         }}
       >
-        <div className="w-full h-full rounded-full border-[3px] border-blue-500/60 absolute" />
+        <div className="w-full h-full rounded-full border-[3px] border-green-600/60 absolute" />
 
         {/* --- ICONS ON ORBIT --- */}
         {icons.map((item, index) => {
@@ -97,7 +97,7 @@ export default function OrbitIcons() {
 
       {/* --- CENTER LOGO --- */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-blue-400/40 rounded-full blur-xl absolute"></div>
+        <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-green-500/40 rounded-full blur-xl absolute"></div>
 
         <div className="relative z-10">
           <Image

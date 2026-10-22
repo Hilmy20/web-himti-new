@@ -49,18 +49,18 @@ export default function About() {
     <div className="w-full space-y-24 py-8 px-4 sm:px-6 lg:px-8">
       {/* Intro & Filosofi Kabinet */}
       <section className="glass-surface relative rounded-[32px] p-8 sm:p-12 md:p-16 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-80 h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -right-24 w-80 h-80 bg-green-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-green-700/15 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs font-medium text-blue-300">
-            <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs font-medium text-green-400">
+            <Sparkles className="w-3.5 h-3.5 text-green-500" />
             <span>Tentang Kabinet Innovara</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-main font-bold tracking-tight text-white leading-tight">
             Mengenal Lebih Dekat <br />
-            <span className="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-500 to-green-500 bg-clip-text text-transparent">
               HIMTI Universitas Paramadina
             </span>
           </h1>
@@ -71,7 +71,7 @@ export default function About() {
           </p>
 
           <div className="pt-2 flex justify-center">
-            <div className="h-1.5 w-24 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 opacity-80" />
+            <div className="h-1.5 w-24 rounded-full bg-gradient-to-r from-green-600 to-green-700 opacity-80" />
           </div>
         </div>
       </section>
@@ -85,7 +85,7 @@ export default function About() {
               key={idx}
               className="glass-surface glass-surface-hover rounded-3xl p-8 space-y-4 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-400/20 flex items-center justify-center text-blue-400 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+              <div className="w-12 h-12 rounded-2xl bg-green-600/10 border border-green-500/20 flex items-center justify-center text-green-500 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
                 <Icon className="w-6 h-6" />
               </div>
               <h3 className="text-xl font-bold font-main text-white">
@@ -102,7 +102,7 @@ export default function About() {
       {/* Galeri Aktivitas - Seamless Liquid Glass Marquee */}
       <section className="glass-surface rounded-[32px] p-6 sm:p-10 space-y-8 overflow-hidden">
         <div className="text-center space-y-2 max-w-xl mx-auto">
-          <span className="text-xs font-semibold uppercase tracking-widest text-blue-400">
+          <span className="text-xs font-semibold uppercase tracking-widest text-green-500">
             Dokumentasi & Memori
           </span>
           <h2 className="text-2xl sm:text-3xl font-main font-bold text-white">
@@ -223,7 +223,7 @@ export default function About() {
           </div>
 
           <div className="space-y-4 text-center lg:text-left">
-            <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-blue-300 bg-blue-500/10 border border-blue-400/20">
+            <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-green-400 bg-green-600/10 border border-green-500/20">
               Ketua Umum HIMTI Paramadina 2024/2025
             </div>
             <h2 className="text-3xl sm:text-4xl font-main font-bold text-white">
@@ -255,7 +255,7 @@ export default function About() {
           </div>
 
           <div className="space-y-4 text-center lg:text-left">
-            <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-indigo-300 bg-indigo-500/10 border border-indigo-400/20">
+            <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold text-green-500 bg-green-700/10 border border-green-600/20">
               Wakil Ketua Umum HIMTI Paramadina 2024/2025
             </div>
             <h2 className="text-3xl sm:text-4xl font-main font-bold text-white">

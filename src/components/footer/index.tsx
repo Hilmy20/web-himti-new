@@ -47,7 +47,7 @@ const Footer = () => {
     <footer className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mb-10">
       <div className="glass-surface rounded-[32px] p-8 sm:p-12 md:p-14 relative overflow-hidden">
         {/* Subtle Ambient Backlight */}
-        <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-green-600/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 pb-10 border-b border-white/10">
           {/* Brand & Address */}
@@ -64,7 +64,7 @@ const Footer = () => {
               </div>
               <div>
                 <p className="font-semibold text-white tracking-wide text-sm">
-                  HIMTI <span className="text-blue-400 font-bold">INNOVARA</span>
+                  HIMTI <span className="text-green-500 font-bold">INNOVARA</span>
                 </p>
                 <p className="text-[11px] text-gray-400">
                   Universitas Paramadina
@@ -88,7 +88,7 @@ const Footer = () => {
 
           {/* Quick Navigation */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-blue-400">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-green-500">
               Navigasi
             </h4>
             <ul className="space-y-2.5">
@@ -107,7 +107,7 @@ const Footer = () => {
 
           {/* Socials & Connect */}
           <div className="md:col-span-3 space-y-4">
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-blue-400">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-green-500">
               Connect With Us
             </h4>
             <div className="flex flex-wrap gap-2.5">
@@ -128,7 +128,7 @@ const Footer = () => {
             <div className="pt-2">
               <Link
                 href="/contact-us"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium text-white bg-gradient-to-r from-blue-500 to-indigo-600 border border-white/20 shadow-[0_4px_16px_rgba(0,102,255,0.3)] hover:brightness-110 transition"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium text-white bg-gradient-to-r from-green-600 to-green-800 border border-white/20 shadow-[0_4px_16px_rgba(42,175,21,0.3)] hover:brightness-110 transition"
               >
                 <span>Kirim Pesan / Aspirasi</span>
               </Link>
