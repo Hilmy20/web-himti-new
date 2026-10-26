@@ -3,7 +3,8 @@
 import Image from "next/image";
 
 export default function ProfileCard({ images, imagesTop = [], imagesBottom = [] }) {
-  const allImages = images && images.length > 0 ? images : [...imagesTop, ...imagesBottom];
+  const rawImages = images && images.length > 0 ? images : [...imagesTop, ...imagesBottom];
+  const allImages = rawImages.map((src) => (src.includes("?") ? src : `${src}?v=2`));
 
   return (
     <div className="w-full">
