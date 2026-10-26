@@ -35,7 +35,7 @@ function getLayoutConfig(count) {
 export default function ProfileCard({ images, imagesTop = [], imagesBottom = [] }) {
   const rawImages = images && images.length > 0 ? images : [...imagesTop, ...imagesBottom];
   // Append version query param to bust any cached thumbnails
-  const allImages = rawImages.map((src) => (src.includes("?") ? src : `${src}?v=3`));
+  const allImages = rawImages.map((src) => (src.includes("?") ? src : `${src}?v=4`));
 
   const config = getLayoutConfig(allImages.length);
 
