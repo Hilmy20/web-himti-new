@@ -177,7 +177,7 @@ export default function Division() {
               </div>
 
               {/* Anggota Card Grid */}
-              <div className="flex justify-center sm:justify-start">
+              <div className="w-full">
                 <ProfileCard images={dept.images} />
               </div>
             </motion.section>
