@@ -3,6 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  onDemandEntries: {
+    // Keep dev server memory low: dispose inactive pages after 60s
+    maxInactiveAge: 60 * 1000,
+    pagesBufferLength: 2,
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 2592000, // 30 days

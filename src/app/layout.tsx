@@ -66,7 +66,7 @@ export default function RootLayout({
           }}
         />
 
-        <SpeedInsights />
+        {process.env.NODE_ENV === "production" && <SpeedInsights />}
         <NavigationBar />
         <main className="w-full max-w-[1400px] flex flex-col mx-auto pt-24 md:pt-28">{children}</main>
         <Footer />
