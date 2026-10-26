@@ -53,13 +53,18 @@ export default function RootLayout({
       <body
         className={`${poppins.className} bg-[#003300] text-white min-h-screen relative overflow-x-hidden selection:bg-[#33CC00]/40 selection:text-white`}
       >
-        {/* Ambient Liquid Glass Lighting Orbs */}
-        <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[480px] bg-gradient-to-br from-[#2AAF15]/20 via-[#33CC00]/15 to-[#003300]/10 blur-[130px] rounded-full" />
-          <div className="absolute top-[35%] -left-36 w-[560px] h-[560px] bg-[#2AAF15]/10 blur-[150px] rounded-full" />
-          <div className="absolute top-[65%] -right-36 w-[600px] h-[600px] bg-[#003300]/10 blur-[150px] rounded-full" />
-          <div className="absolute bottom-10 left-1/4 w-[500px] h-[500px] bg-[#2AAF15]/10 blur-[140px] rounded-full" />
-        </div>
+        {/* High-Performance Ambient Lighting Mesh (Zero Blur GPU Overhead) */}
+        <div
+          className="fixed inset-0 pointer-events-none -z-10 overflow-hidden"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle 500px at 50% -8%, rgba(42, 175, 21, 0.18), transparent 70%),
+              radial-gradient(circle 450px at 0% 35%, rgba(51, 204, 0, 0.12), transparent 70%),
+              radial-gradient(circle 500px at 100% 65%, rgba(42, 175, 21, 0.10), transparent 70%),
+              radial-gradient(circle 450px at 30% 95%, rgba(51, 204, 0, 0.10), transparent 70%)
+            `,
+          }}
+        />
 
         <SpeedInsights />
         <NavigationBar />

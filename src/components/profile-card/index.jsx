@@ -14,6 +14,7 @@ export default function ProfileCard({ imagesTop = [], imagesBottom = [] }) {
               src={src}
               alt={`img-top-${i}`}
               fill
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               className="object-cover rounded-xl"
             />
           </div>
@@ -28,6 +29,7 @@ export default function ProfileCard({ imagesTop = [], imagesBottom = [] }) {
               src={src}
               alt={`img-bottom-${i}`}
               fill
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               className="object-cover rounded-xl"
             />
           </div>

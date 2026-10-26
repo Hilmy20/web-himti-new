@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Hero from "@/assets/images/hero.png";
+import Hero from "@/assets/images/hero.webp";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
 
@@ -14,8 +14,8 @@ export default function Himtipedia() {
             width={600}
             height={400}
             priority={true}
-            quality={100}
-            sizes="100%"
+            quality={85}
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="w-full h-auto rounded-lg shadow"
           />
         </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Hero from "@/assets/images/hero_himti.png";
+import Hero from "@/assets/images/hero_himti.webp";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import EventImage from "@/components/event";
 import Link from "next/link";
@@ -21,6 +21,7 @@ export default function Home() {
             src={Hero}
             alt="hero himti"
             fill
+            sizes="(max-width: 1400px) 100vw, 1400px"
             className="object-cover filter brightness-[0.78] contrast-105 scale-100"
             priority
           />
