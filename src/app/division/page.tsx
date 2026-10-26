@@ -16,11 +16,10 @@ export default function Division() {
       accent: "text-green-500",
       description:
         "Bertanggung jawab atas tata kelola persuratan, inventarisasi organisasi, dokumentasi legalitas, dan ketertiban administrasi harian HIMTI.",
-      imagesTop: [
+      images: [
         "/images/divisi/DA_1.png",
         "/images/divisi/DA_2.png",
         "/images/divisi/DA_3.png",
-        "/images/divisi/DA_4.png",
       ],
     },
     {
@@ -30,7 +29,7 @@ export default function Division() {
       accent: "text-emerald-400",
       description:
         "Mengelola sirkulasi kas, penyusunan anggaran kegiatan, transparansi keuangan himpunan, dan inisiatif pendanaan mandiri (merchandise & sponsorship).",
-      imagesTop: [
+      images: [
         "/images/divisi/DF_1.png",
         "/images/divisi/DF_2.png",
         "/images/divisi/DF_3.png",
@@ -44,17 +43,13 @@ export default function Division() {
       accent: "text-green-600",
       description:
         "Membangun hubungan positif dengan pihak internal dan eksternal, mengelola media sosial, publikasi informasi resmi, serta menjalin kolaborasi dengan alumni dan industri.",
-      imagesTop: [
+      images: [
         "/images/divisi/DPRM_1.png",
         "/images/divisi/DPRM_2.png",
         "/images/divisi/DPRM_3.png",
         "/images/divisi/DPRM_4.png",
-      ],
-      imagesBottom: [
         "/images/divisi/DPRM_5.png",
         "/images/divisi/DPRM_6.png",
-        "/images/divisi/DPRM_7.png",
-        "/images/divisi/DPRM_8.png",
       ],
     },
     {
@@ -64,11 +59,12 @@ export default function Division() {
       accent: "text-green-500",
       description:
         "Pusat inovasi dan eksplorasi teknologi, mengelola pengembangan platform web himpunan, riset software, dan persiapan delegasi kompetisi teknologi.",
-      imagesTop: [
+      images: [
         "/images/divisi/DRT_1.png",
         "/images/divisi/DRT_2.png",
         "/images/divisi/DRT_3.png",
         "/images/divisi/DRT_4.png",
+        "/images/divisi/DRT_5.png",
       ],
     },
     {
@@ -78,17 +74,11 @@ export default function Division() {
       accent: "text-pink-400",
       description:
         "Merancang identitas visual HIMTI, memproduksi aset grafis, merchandise, video dokumentasi, dan meningkatkan estetika setiap publikasi dan acara.",
-      imagesTop: [
+      images: [
         "/images/divisi/DCD_1.png",
         "/images/divisi/DCD_2.png",
         "/images/divisi/DCD_3.png",
         "/images/divisi/DCD_4.png",
-      ],
-      imagesBottom: [
-        "/images/divisi/DCD_5.png",
-        "/images/divisi/DCD_6.png",
-        "/images/divisi/DCD_7.png",
-        "/images/divisi/DCD_8.png",
       ],
     },
     {
@@ -98,7 +88,7 @@ export default function Division() {
       accent: "text-amber-400",
       description:
         "Berkomitmen memantau kapasitas anggota, menyelenggarakan bimbingan belajar koding (Kobit), workshop, dan pelatihan soft skills bagi mahasiswa Informatika.",
-      imagesTop: [
+      images: [
         "/images/divisi/DHCPE_1.png",
         "/images/divisi/DHCPE_2.png",
         "/images/divisi/DHCPE_3.png",
@@ -188,10 +178,7 @@ export default function Division() {
 
               {/* Anggota Card Grid */}
               <div className="flex justify-center sm:justify-start">
-                <ProfileCard
-                  imagesTop={dept.imagesTop}
-                  imagesBottom={dept.imagesBottom}
-                />
+                <ProfileCard images={dept.images} />
               </div>
             </motion.section>
           );
