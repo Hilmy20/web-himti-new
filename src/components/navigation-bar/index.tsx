@@ -17,7 +17,6 @@ const nav: NavItem[] = [
   { name: "About Us", href: "/about" },
   { name: "Division", href: "/division" },
   { name: "Program Kerja", href: "/proker" },
-  { name: "Himtipedia", href: "/himtipedia" },
   { name: "Contact Us", href: "/contact-us" },
 ];
 

@@ -51,14 +51,11 @@ const COLUMNS: FooterColumn[] = [
       { label: "About Us", href: "/about" },
       { label: "Division", href: "/division" },
       { label: "Program Kerja", href: "/proker" },
-      { label: "Himtipedia", href: "/himtipedia" },
     ],
   },
   {
     title: "Informasi",
     links: [
-      { label: "Profil Organisasi", href: "/himtipedia/profile" },
-      { label: "Kepengurusan", href: "/himtipedia/kepengurusan" },
       { label: "Events", href: "/events" },
       { label: "Contact Us", href: "/contact-us" },
     ],
