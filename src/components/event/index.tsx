@@ -14,31 +14,27 @@ const EventImage: React.FC<EventImageProps> = ({ src, alt, title, href }) => {
   return (
     <Link
       href={href}
-      className="group relative w-full h-[380px] md:h-[420px] rounded-3xl overflow-hidden border border-white/15 bg-white/[0.02] backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.2)] transition-all duration-500 hover:border-white/30 hover:-translate-y-1 block"
+      className="group block overflow-hidden rounded-lg border border-hairline bg-surface-canvas transition-colors duration-200 hover:border-ink/25"
     >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes="(max-width: 1024px) 100vw, 50vw"
-        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-90 group-hover:brightness-95"
-      />
-      {/* Liquid Glass Frosted Bottom Bar */}
-      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex items-end justify-between gap-4">
-        <div className="space-y-1">
-          <span className="inline-block px-3 py-1 rounded-full text-[11px] font-medium tracking-wider uppercase bg-green-600/30 border border-green-500/40 text-green-300 backdrop-blur-md">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-parchment">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          className="object-cover transition-transform duration-500 ease-apple group-hover:scale-[1.03]"
+        />
+      </div>
+      <div className="flex items-center justify-between gap-4 p-5">
+        <div className="min-w-0">
+          <p className="text-caption-strong uppercase tracking-[0.08em] text-brand-link">
             Featured Event
-          </span>
-          <p className="text-xl sm:text-2xl font-bold text-white drop-shadow-md">
-            {title}
           </p>
+          <p className="mt-1 truncate text-tagline text-ink">{title}</p>
         </div>
-        <div className="w-11 h-11 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl flex items-center justify-center text-white shrink-0 group-hover:bg-green-700 group-hover:border-transparent transition-all duration-300 shadow-lg">
-          <Icon
-            icon={"material-symbols:arrow-right-alt"}
-            className="w-5 h-5 transform -rotate-45"
-          />
-        </div>
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-hairline text-ink transition-colors group-hover:border-ink/25">
+          <Icon icon="material-symbols:arrow-right-alt" className="h-5 w-5 -rotate-45" />
+        </span>
       </div>
     </Link>
   );

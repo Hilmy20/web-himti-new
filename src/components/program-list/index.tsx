@@ -17,16 +17,16 @@ const programs = [
 
 const ProgramsList = () => {
   return (
-    <div className="flex flex-col gap-6 mt-10">
-      {programs.map((program, index) => (
+    <div className="mt-10 flex flex-col">
+      {programs.map((program) => (
         <div
-          key={index}
-          className="flex justify-between items-center p-4 bg-dark-main rounded-lg cursor-pointer"
+          key={program}
+          className="flex cursor-pointer items-center justify-between gap-4 border-b border-hairline py-4 transition-colors hover:text-brand-link"
         >
-          <p className="text-lg text-white">{program}</p>
+          <p className="text-body">{program}</p>
           <Icon
-            icon={"material-symbols:arrow-right-alt"}
-            className="w-6 h-6 transform rotate-[-45deg] text-brand-main"
+            icon="material-symbols:arrow-right-alt"
+            className="h-5 w-5 -rotate-45 text-brand-link"
           />
         </div>
       ))}

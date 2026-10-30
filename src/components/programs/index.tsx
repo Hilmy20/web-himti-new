@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 interface ProgramsProps {
   title: string;
@@ -7,39 +8,30 @@ interface ProgramsProps {
   backgroundColor?: "white" | "green";
 }
 
-const Programs: React.FC<ProgramsProps> = ({
-  title,
-  href,
-  backgroundColor,
-}) => {
+const Programs: React.FC<ProgramsProps> = ({ title, href, backgroundColor }) => {
   const isHighlight = backgroundColor === "green";
 
   return (
     <Link
       href={href}
-      className={`group w-full p-5 sm:p-6 flex flex-row items-center justify-between rounded-2xl transition-all duration-300 ${
+      className={cn(
+        "group flex w-full flex-row items-center justify-between gap-4 rounded-md border px-5 py-5 transition-colors duration-150 sm:px-6",
         isHighlight
-          ? "bg-gradient-to-r from-green-700/80 to-green-800/80 border border-white/30 backdrop-blur-2xl shadow-[0_12px_36px_rgba(42,175,21,0.35),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:brightness-110 hover:-translate-y-0.5"
-          : "glass-surface glass-surface-hover"
-      }`}
+          ? "border-transparent bg-brand-primary text-ink hover:bg-brand-secondary"
+          : "border-hairline bg-surface-canvas text-ink hover:border-ink/25"
+      )}
     >
-      <div>
-        <p className="text-lg sm:text-xl md:text-2xl font-semibold tracking-wide text-white">
-          {title}
-        </p>
-      </div>
-      <div
-        className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${
+      <p className="text-tagline">{title}</p>
+      <span
+        className={cn(
+          "flex h-11 w-11 shrink-0 items-center justify-center rounded-full border transition-colors",
           isHighlight
-            ? "bg-white/20 border border-white/40 text-white"
-            : "bg-white/10 border border-white/15 text-green-500 group-hover:bg-green-600 group-hover:text-white group-hover:border-transparent"
-        }`}
+            ? "border-ink/20 text-ink"
+            : "border-hairline text-brand-link group-hover:border-ink/25"
+        )}
       >
-        <Icon
-          icon={"material-symbols:arrow-right-alt"}
-          className="w-5 h-5 sm:w-6 sm:h-6 transform -rotate-45"
-        />
-      </div>
+        <Icon icon="material-symbols:arrow-right-alt" className="h-5 w-5 -rotate-45" />
+      </span>
     </Link>
   );
 };

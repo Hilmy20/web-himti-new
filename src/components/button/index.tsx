@@ -1,9 +1,10 @@
 import Link from "next/link";
 import React from "react";
+import { cn } from "@/lib/utils";
 
 type ButtonProps = {
   text?: string;
-  variant: "blue";
+  variant?: "primary" | "blue" | "secondary" | "dark";
   onClick?: () => void;
   icon?: React.ReactNode | null;
   iconPosition?: "left" | "right";
@@ -12,47 +13,48 @@ type ButtonProps = {
   size?: "xs" | "sm" | "md" | "lg";
 };
 
-const Button = (props: ButtonProps) => {
-  const {
-    text,
-    variant,
-    onClick,
-    icon,
-    iconPosition = "left",
-    href,
-    size,
-    className,
-  } = props;
+const sizeClasses = {
+  xs: "text-fine",
+  sm: "text-caption",
+  md: "text-body",
+  lg: "text-button-lg",
+};
 
+const Button = ({
+  text,
+  variant = "primary",
+  onClick,
+  icon,
+  iconPosition = "left",
+  href,
+  size = "md",
+  className,
+}: ButtonProps) => {
   const variantClasses = {
-    blue: "bg-brand-main text-white",
+    primary: "btn-primary",
+    blue: "btn-primary",
+    secondary: "btn-secondary",
+    dark: "btn-dark",
   }[variant];
 
   const content = (
-    <div className="flex flex-row gap-2">
-      {icon && iconPosition === "left" && <span>{icon}</span>}
-      {text ? <span className={`text-${size}`}>{text}</span> : null}
-      {icon && iconPosition === "right" && <span>{icon}</span>}
-    </div>
+    <>
+      {icon && iconPosition === "left" && <span className="shrink-0">{icon}</span>}
+      {text ? <span className={sizeClasses[size]}>{text}</span> : null}
+      {icon && iconPosition === "right" && <span className="shrink-0">{icon}</span>}
+    </>
   );
 
   if (href) {
     return (
-      <Link
-        href={href}
-        className={`${className} ${variantClasses} flex items-center justify-center`}
-        onClick={onClick}
-      >
+      <Link href={href} onClick={onClick} className={cn(variantClasses, className)}>
         {content}
       </Link>
     );
   }
 
   return (
-    <button
-      className={`${className} ${variantClasses} flex items-center justify-center`}
-      onClick={onClick}
-    >
+    <button type="button" onClick={onClick} className={cn(variantClasses, className)}>
       {content}
     </button>
   );

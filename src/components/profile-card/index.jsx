@@ -34,31 +34,27 @@ function getLayoutConfig(count) {
 
 export default function ProfileCard({ images, imagesTop = [], imagesBottom = [] }) {
   const rawImages = images && images.length > 0 ? images : [...imagesTop, ...imagesBottom];
-  // Append version query param to bust any cached thumbnails
   const allImages = rawImages.map((src) => (src.includes("?") ? src : `${src}?v=4`));
-
   const config = getLayoutConfig(allImages.length);
 
   return (
-    <div className="w-full flex justify-center">
-      <div className="flex flex-wrap justify-center gap-4 sm:gap-6 w-full">
+    <div className="flex w-full justify-center">
+      <div className="flex w-full flex-wrap justify-center gap-4 sm:gap-6">
         {allImages.map((src, i) => (
           <div
             key={i}
-            className={`group relative aspect-[4/5] rounded-2xl overflow-hidden glass-surface border border-white/10 shadow-lg hover:border-green-500/30 hover:-translate-y-1.5 transition-all duration-300 flex-shrink-0 ${config.itemWidth}`}
+            className={`group relative aspect-[4/5] flex-shrink-0 overflow-hidden rounded-lg border border-hairline bg-surface-parchment transition-colors duration-200 hover:border-ink/25 ${config.itemWidth}`}
           >
             <Image
               src={src}
               alt={`Anggota Divisi ${i + 1}`}
               fill
               sizes={config.sizes}
-              className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              className="object-cover object-center transition-transform duration-500 ease-apple group-hover:scale-[1.03]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
           </div>
         ))}
       </div>
     </div>
   );
 }
-

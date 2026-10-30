@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import ketum from "@/assets/images/mita.png";
 import waketum from "@/assets/images/raka.png";
 import sekre from "@/assets/images/qilla.png";
@@ -21,53 +20,54 @@ export type Member = {
   major?: string;
   socials?: { twitter?: string; instagram?: string; linkedin?: string };
 };
+
 type Props = { members: Member[] };
+
 export default function HimtiCommitteeCards({ members }: Props) {
   const [hoverId, setHoverId] = useState<string | null>(null);
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-10 mt-32">
-      <div className="flex flex-col items-start md:items-center text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs text-green-400 font-medium mb-3">
-          Kabinet Innovara
+    <section className="section tile-parchment">
+      <div className="container-page">
+        <div className="max-w-[980px]">
+          <p className="eyebrow">Kabinet Innovara</p>
+          <h2 className="heading-lg mt-3">
+            Pengurus <span className="text-brand-link">HIMTI</span>
+          </h2>
+          <p className="body-copy mt-4 max-w-2xl">
+            Pengurus inti HIMTI terdiri dari ketua, wakil ketua, serta koordinator
+            departemen yang memimpin berbagai bidang untuk memastikan keberjalanan
+            organisasi secara profesional dan kolaboratif.
+          </p>
         </div>
-        <h3 className="font-main text-3xl md:text-5xl tracking-tight text-white">
-          Pengurus <span className="bg-gradient-to-r from-green-500 to-green-500 bg-clip-text text-transparent">HIMTI</span>
-        </h3>
-        <p className="text-gray-300/80 pt-4 max-w-2xl text-sm md:text-base leading-relaxed">
-          Pengurus inti HIMTI terdiri dari ketua, wakil ketua, serta koordinator
-          departemen yang memimpin berbagai bidang untuk memastikan keberjalanan
-          organisasi secara profesional dan kolaboratif.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16">
-        {members.map((m) => (
-          <div
-            key={m.id}
-            className="group relative rounded-3xl overflow-hidden cursor-pointer border border-white/15 bg-white/[0.03] backdrop-blur-2xl shadow-[0_16px_40px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.2)] transition-all duration-300 hover:border-white/30 hover:-translate-y-1"
-            onMouseEnter={() => setHoverId(m.id)}
-            onMouseLeave={() => setHoverId(null)}
-          >
-            <div className="relative aspect-[3/4] w-full overflow-hidden">
-              <Image
-                src={m.image}
-                alt={m.name}
-                fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105 filter brightness-95 group-hover:brightness-90"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-            </div>
 
-            {/* Bottom Card Info Overlay */}
-            <div className="absolute inset-x-0 bottom-0 p-4">
-              <div className="rounded-2xl p-3 bg-black/50 backdrop-blur-xl border border-white/15 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
-                <p className="font-semibold text-white text-base truncate">{m.name}</p>
-                <p className="text-xs font-medium text-green-500">{m.role}</p>
-                <p className="text-[11px] text-gray-300 truncate mt-0.5">{m.major}</p>
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {members.map((m) => (
+            <article
+              key={m.id}
+              className="card card-hover overflow-hidden"
+              onMouseEnter={() => setHoverId(m.id)}
+              onMouseLeave={() => setHoverId(null)}
+            >
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-surface-parchment">
+                <Image
+                  src={m.image}
+                  alt={m.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className={`object-cover transition-transform duration-500 ease-apple ${
+                    hoverId === m.id ? "scale-[1.03]" : "scale-100"
+                  }`}
+                />
               </div>
-            </div>
-          </div>
-        ))}
+              <div className="p-4">
+                <p className="truncate text-body-strong text-ink">{m.name}</p>
+                <p className="mt-0.5 truncate text-caption text-brand-link">{m.role}</p>
+                <p className="mt-0.5 truncate text-fine text-ink-fine">{m.major}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

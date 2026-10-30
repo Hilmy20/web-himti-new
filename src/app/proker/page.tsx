@@ -81,170 +81,163 @@ const programs: ProgramItem[] = [
   },
 ];
 
+function statusClass(status: ProgramItem["status"]) {
+  switch (status) {
+    case "Active":
+      return "bg-brand-subtle text-brand-link";
+    case "Upcoming":
+      return "bg-surface-parchment text-brand-link";
+    case "Scheduled":
+      return "bg-surface-parchment text-ink-muted";
+    default:
+      return "bg-surface-parchment text-ink-fine";
+  }
+}
+
 export default function ProgramKerjaPage() {
   const [selectedProgram, setSelectedProgram] = useState<ProgramItem | null>(null);
 
-  const getStatusColor = (status: ProgramItem["status"]) => {
-    switch (status) {
-      case "Active":
-        return "bg-emerald-500/20 text-emerald-300 border-emerald-400/30";
-      case "Upcoming":
-        return "bg-green-600/20 text-green-400 border-green-500/30";
-      case "Scheduled":
-        return "bg-green-700/20 text-green-500 border-green-600/30";
-      default:
-        return "bg-white/10 text-gray-300 border-white/20";
-    }
-  };
-
   return (
-    <div className="w-full space-y-16 py-8 px-4 sm:px-6 lg:px-8">
-      {/* Header Banner */}
-      <section className="glass-surface relative rounded-[32px] p-8 sm:p-12 md:p-16 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-80 h-80 bg-green-600/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-green-700/15 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/15 backdrop-blur-xl text-xs font-medium text-green-400">
-            <Sparkles className="w-3.5 h-3.5 text-green-500" />
-            <span>Kabinet Innovara 2024/2025</span>
-          </div>
-
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-main font-bold tracking-tight text-white leading-tight">
-            Program Kerja{" "}
-            <span className="bg-gradient-to-r from-green-500 to-green-500 bg-clip-text text-transparent">
-              HIMTI Paramadina
-            </span>
+    <div className="w-full">
+      <section className="tile-light section">
+        <div className="container-narrow text-center">
+          <p className="eyebrow justify-center">Kabinet Innovara 2024/2025</p>
+          <h1 className="heading-hero mt-4">
+            Program Kerja <span className="text-brand-link">HIMTI Paramadina</span>
           </h1>
-
-          <p className="text-gray-300/85 text-sm sm:text-base md:text-lg leading-relaxed font-light max-w-2xl mx-auto">
-            Kenali program dan agenda unggulan HIMTI yang menjadi ruang untuk bertumbuh, mengasah kapabilitas teknis, dan berkolaborasi menciptakan dampak nyata.
+          <p className="lead-copy mx-auto mt-5 max-w-2xl text-ink-muted">
+            Kenali program dan agenda unggulan HIMTI yang menjadi ruang untuk
+            bertumbuh, mengasah kapabilitas teknis, dan berkolaborasi menciptakan
+            dampak nyata.
           </p>
         </div>
       </section>
 
-      {/* Program Grid */}
-      <section className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {programs.map((program, index) => {
-            const Icon = program.icon;
-            return (
-              <motion.article
-                key={program.number}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-                onClick={() => setSelectedProgram(program)}
-                className="glass-surface glass-surface-hover rounded-3xl p-7 sm:p-9 cursor-pointer group flex flex-col justify-between relative overflow-hidden transition-all duration-300"
-              >
-                <div className="absolute top-0 right-0 w-36 h-36 bg-green-600/10 rounded-full blur-2xl group-hover:bg-green-600/20 transition duration-300 pointer-events-none" />
-
-                <div className="space-y-6">
-                  {/* Top Header */}
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-green-600/10 border border-green-500/20 flex items-center justify-center text-green-500 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
-                      <Icon size={24} />
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(
-                          program.status
-                        )}`}
-                      >
-                        {program.status}
-                      </span>
-                      <span className="text-xs font-mono text-gray-500 font-semibold">
-                        {program.number}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Body Content */}
+      <section className="tile-parchment section">
+        <div className="container-page">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {programs.map((program, index) => {
+              const Icon = program.icon;
+              return (
+                <motion.article
+                  key={program.number}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.06 }}
+                  onClick={() => setSelectedProgram(program)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedProgram(program);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  className="card card-hover flex cursor-pointer flex-col justify-between p-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary sm:p-9"
+                >
                   <div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-green-500 block mb-1">
-                      {program.category}
-                    </span>
-                    <h2 className="text-2xl sm:text-3xl font-bold font-main text-white group-hover:text-green-400 transition">
-                      {program.title}
-                    </h2>
-                    <p className="mt-3 text-sm text-gray-300/80 leading-relaxed font-light">
-                      {program.description}
-                    </p>
-                  </div>
-                </div>
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-md bg-surface-parchment text-brand-link">
+                        <Icon size={24} />
+                      </span>
+                      <div className="flex items-center gap-3">
+                        <span
+                          className={`inline-flex rounded-full px-3 py-1 text-caption ${statusClass(
+                            program.status
+                          )}`}
+                        >
+                          {program.status}
+                        </span>
+                        <span className="text-caption text-ink-fine">
+                          {program.number}
+                        </span>
+                      </div>
+                    </div>
 
-                {/* Footer Action */}
-                <div className="pt-8 mt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
-                  <div className="flex items-center gap-2">
-                    <CalendarDays className="w-3.5 h-3.5 text-green-500" />
-                    <span>{program.dateEstimate}</span>
+                    <p className="eyebrow mt-6">{program.category}</p>
+                    <h2 className="mt-2 text-tagline text-ink">{program.title}</h2>
+                    <p className="body-copy mt-3">{program.description}</p>
                   </div>
-                  <span className="inline-flex items-center gap-1.5 font-medium text-green-500 group-hover:text-white transition">
-                    <span>Lihat Detail</span>
-                    <ArrowUpRight className="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
-                  </span>
-                </div>
-              </motion.article>
-            );
-          })}
+
+                  <div className="mt-8 flex items-center justify-between border-t border-hairline pt-5 text-caption text-ink-fine">
+                    <span className="flex items-center gap-2">
+                      <CalendarDays className="h-3.5 w-3.5 text-brand-link" />
+                      {program.dateEstimate}
+                    </span>
+                    <span className="btn-link text-caption">
+                      Lihat Detail
+                      <ArrowUpRight className="h-4 w-4" />
+                    </span>
+                  </div>
+                </motion.article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* Program Detail Modal */}
       <AnimatePresence>
         {selectedProgram && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-label={selectedProgram.title}
+          >
+            <button
+              type="button"
+              aria-label="Tutup detail"
+              onClick={() => setSelectedProgram(null)}
+              className="absolute inset-0 cursor-default bg-ink/40 backdrop-blur-sm"
+            />
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={{ opacity: 0, scale: 0.98, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.2 }}
-              className="glass-surface relative w-full max-w-lg rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl border border-white/20 overflow-hidden"
+              exit={{ opacity: 0, scale: 0.98, y: 12 }}
+              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="card relative z-10 w-full max-w-lg space-y-6 p-6 sm:p-8"
             >
               <div className="flex items-start justify-between gap-4">
-                <div className="space-y-1">
+                <div>
                   <span
-                    className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(
+                    className={`inline-flex rounded-full px-3 py-1 text-caption ${statusClass(
                       selectedProgram.status
                     )}`}
                   >
                     {selectedProgram.status}
                   </span>
-                  <h3 className="text-2xl font-bold font-main text-white pt-2">
-                    {selectedProgram.title}
-                  </h3>
-                  <p className="text-xs text-green-500 uppercase tracking-wider font-semibold">
-                    {selectedProgram.category}
-                  </p>
+                  <h3 className="mt-3 text-tagline text-ink">{selectedProgram.title}</h3>
+                  <p className="mt-1 text-caption text-brand-link">{selectedProgram.category}</p>
                 </div>
                 <button
+                  type="button"
                   onClick={() => setSelectedProgram(null)}
-                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white/80 hover:text-white transition"
+                  aria-label="Tutup"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-hairline text-ink-muted transition-colors hover:border-ink/25 hover:text-ink"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="h-5 w-5" />
                 </button>
               </div>
 
-              <div className="space-y-4 text-sm text-gray-300/90 leading-relaxed font-light">
-                <p>{selectedProgram.detailedInfo}</p>
+              <p className="body-copy">{selectedProgram.detailedInfo}</p>
 
-                <div className="rounded-2xl p-4 bg-white/[0.04] border border-white/10 space-y-2 text-xs">
-                  <div className="flex items-center gap-2 text-gray-300">
-                    <Clock className="w-4 h-4 text-green-500 shrink-0" />
-                    <span>Waktu: {selectedProgram.dateEstimate}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-gray-300">
-                    <MapPin className="w-4 h-4 text-green-500 shrink-0" />
-                    <span>Lokasi: {selectedProgram.location}</span>
-                  </div>
-                </div>
+              <div className="space-y-2 rounded-md bg-surface-parchment p-4 text-caption text-ink-muted">
+                <p className="flex items-center gap-2">
+                  <Clock className="h-4 w-4 text-brand-link" />
+                  Waktu: {selectedProgram.dateEstimate}
+                </p>
+                <p className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-brand-link" />
+                  Lokasi: {selectedProgram.location}
+                </p>
               </div>
 
-              <div className="pt-2 flex justify-end">
+              <div className="flex justify-end">
                 <button
+                  type="button"
                   onClick={() => setSelectedProgram(null)}
-                  className="px-6 py-2.5 rounded-full text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/20 transition"
+                  className="btn-secondary"
                 >
                   Tutup
                 </button>

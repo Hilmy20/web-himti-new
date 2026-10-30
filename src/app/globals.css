@@ -3,137 +3,247 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "MyFont";
+  font-family: "VELISTA";
   src: url("/fonts/VELISTA.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
-
-@font-face {
-  font-family: "MyFont";
-  src: url("/fonts/VELISTA.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    /* Brand — docs/COLLORPALLATE.md */
+    --himti-primary: #33cc00;
+    --himti-secondary: #2aaf15;
+    --himti-dark: #003300;
+    --himti-light: #fefefe;
+
+    /* shadcn bridge */
+    --background: 0 0% 99.6%;
+    --foreground: 120 100% 10%;
+    --card: 0 0% 99.6%;
+    --card-foreground: 120 100% 10%;
+    --popover: 0 0% 99.6%;
+    --popover-foreground: 120 100% 10%;
+    --primary: 105 100% 40%;
+    --primary-foreground: 120 100% 10%;
+    --secondary: 112 79% 38%;
+    --secondary-foreground: 120 100% 10%;
+    --muted: 100 9% 96%;
+    --muted-foreground: 114 10% 32%;
+    --accent: 100 12% 94%;
+    --accent-foreground: 120 100% 10%;
+    --destructive: 4 76% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 100 8% 90%;
+    --input: 100 8% 90%;
+    --ring: 112 79% 38%;
+    --radius: 11px;
   }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
-}
 
-
-
-@layer base {
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-color: var(--himti-secondary) var(--himti-dark);
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-surface-canvas text-ink antialiased;
+    font-feature-settings: "ss03" 1;
+  }
+
+  ::selection {
+    background: rgba(51, 204, 0, 0.28);
+    color: #003300;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--himti-secondary);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-balance;
+  }
+
+  img {
+    @apply select-none;
   }
 }
 
-/* Apple Liquid Glass Utilities (GPU Accelerated) */
-.glass-surface {
-  background: rgba(255, 255, 255, 0.035);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.2);
-  transform: translateZ(0);
+@layer components {
+  /* ---------- Layout ---------- */
+  .section {
+    @apply py-12 md:py-20;
+  }
+
+  .container-page {
+    @apply mx-auto w-full max-w-[1440px] px-5 sm:px-6 lg:px-10;
+  }
+
+  .container-narrow {
+    @apply mx-auto w-full max-w-[980px] px-5 sm:px-6;
+  }
+
+  /* ---------- Surfaces ---------- */
+  .tile-light {
+    @apply bg-surface-canvas text-ink;
+  }
+
+  .tile-parchment {
+    @apply bg-surface-parchment text-ink;
+  }
+
+  .tile-dark {
+    @apply bg-surface-dark text-ink-on-dark;
+  }
+
+  .tile-dark-2 {
+    @apply bg-surface-dark-2 text-ink-on-dark;
+  }
+
+  .tile-dark-3 {
+    @apply bg-surface-dark-3 text-ink-on-dark;
+  }
+
+  /* ---------- Type ---------- */
+  .heading-hero {
+    @apply font-display text-[clamp(32px,6vw,56px)] font-semibold leading-[1.07] tracking-[-0.28px];
+  }
+
+  .heading-lg {
+    @apply font-display text-[clamp(28px,4vw,40px)] font-semibold leading-[1.1] tracking-[-0.4px];
+  }
+
+  .heading-md {
+    @apply font-display text-[clamp(24px,3vw,34px)] font-semibold leading-[1.2] tracking-[-0.374px];
+  }
+
+  .lead-copy {
+    @apply font-display text-[clamp(18px,2vw,28px)] font-normal leading-[1.3] tracking-[0.196px];
+  }
+
+  .body-copy {
+    @apply text-body text-ink-muted;
+  }
+
+  .body-copy-dark {
+    @apply text-body text-ink-on-dark-muted;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-eyebrow uppercase text-brand-link;
+  }
+
+  .eyebrow-dark {
+    @apply inline-flex items-center gap-2 text-eyebrow uppercase text-brand-primary;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-[22px] py-[11px] text-body font-normal transition duration-150 ease-apple active:scale-95 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-brand-primary px-[22px] py-[11px] text-body font-normal text-ink transition duration-150 ease-apple hover:bg-brand-secondary active:scale-95 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-ink/25 bg-transparent px-[22px] py-[11px] text-body font-normal text-ink transition duration-150 ease-apple hover:bg-surface-parchment active:scale-95 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-secondary-dark {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-ink-on-dark/30 bg-transparent px-[22px] py-[11px] text-body font-normal text-ink-on-dark transition duration-150 ease-apple hover:bg-ink-on-dark/10 active:scale-95 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-dark {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-sm bg-ink px-[15px] py-2 text-button-utility text-ink-on-dark transition duration-150 ease-apple hover:bg-brand-dark active:scale-95;
+  }
+
+  .btn-pearl {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-md border-[3px] border-divider-soft bg-surface-pearl px-3.5 py-2 text-caption text-ink transition duration-150 ease-apple hover:border-hairline active:scale-95;
+  }
+
+  .btn-link {
+    @apply inline-flex items-center gap-1.5 text-body text-brand-link underline-offset-4 transition hover:underline;
+  }
+
+  .btn-link-dark {
+    @apply inline-flex items-center gap-1.5 text-body text-brand-link-on-dark underline-offset-4 transition hover:underline;
+  }
+
+  /* ---------- Containers ---------- */
+  .card {
+    @apply rounded-lg border border-hairline bg-surface-canvas;
+  }
+
+  .card-hover {
+    @apply transition-colors duration-200 ease-apple hover:border-ink/25;
+  }
+
+  .card-photo {
+    @apply overflow-hidden rounded-sm bg-surface-parchment;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-hairline bg-surface-canvas px-3.5 py-2 text-caption text-ink transition-colors duration-150;
+  }
+
+  .chip-selected {
+    @apply border-2 border-brand-secondary text-brand-link;
+  }
+
+  .chip-dark {
+    @apply inline-flex items-center gap-2 rounded-full border border-ink-on-dark/30 px-3.5 py-1.5 text-caption text-ink-on-dark;
+  }
+
+  /* ---------- Forms ---------- */
+  .input {
+    @apply h-11 w-full rounded-full border border-hairline bg-surface-canvas px-5 text-body text-ink placeholder:text-ink-fine focus:outline-none focus:ring-2 focus:ring-brand-secondary/40;
+  }
+
+  .select-field {
+    @apply h-11 w-full rounded-md border border-hairline bg-surface-canvas px-4 text-body text-ink focus:outline-none focus:ring-2 focus:ring-brand-secondary/40;
+  }
+
+  /* ---------- Chrome ---------- */
+  .subnav-frosted {
+    @apply border-b border-hairline bg-surface-parchment/80 backdrop-blur-[20px] backdrop-saturate-[1.8];
+  }
+
+  .product-shadow {
+    box-shadow: 3px 5px 30px rgba(0, 0, 0, 0.22);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
-.glass-surface-hover {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+@layer utilities {
+  .pause-on-hover:hover {
+    animation-play-state: paused;
+  }
 }
 
-.glass-surface-hover:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 24px 60px rgba(42, 175, 21, 0.15), inset 0 1px 1.5px rgba(255, 255, 255, 0.35);
-  transform: translateY(-2px) translateZ(0);
-}
-
-.glass-pill {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
-  transform: translateZ(0);
-}
-
-
-/* HIMTI official palette */
-:root {
-  --himti-green: #2AAF15;
-  --himti-lime: #33CC00;
-  --himti-dark-green: #003300;
-  --himti-white: #FEFEFE;
-}
-
-html {
-  scrollbar-color: var(--himti-green) var(--himti-dark-green);
-}
-
-::selection {
-  background: rgba(51, 204, 0, 0.35);
-  color: var(--himti-white);
-}
-
-.glass-surface-hover:hover {
-  border-color: rgba(51, 204, 0, 0.35);
-  box-shadow: 0 24px 60px rgba(42, 175, 21, 0.15), inset 0 1px 1.5px rgba(255, 255, 255, 0.35);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

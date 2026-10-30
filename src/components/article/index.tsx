@@ -18,35 +18,28 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
   href,
 }) => {
   return (
-    <div className="flex gap-6">
-      <Link href={href}>
+    <article className="flex flex-col gap-4 sm:flex-row sm:gap-6">
+      <Link href={href} className="shrink-0">
         <Image
           src={src}
           alt={alt}
-          width={190}
-          height={190}
-          className="rounded-md bg-white bg-opacity-5 p-16"
+          width={160}
+          height={160}
+          className="h-40 w-full rounded-sm bg-surface-parchment object-cover sm:w-40"
         />
       </Link>
 
-      <Link href={href} className="flex flex-col justify-between">
+      <Link href={href} className="flex flex-col justify-between gap-4">
         <div>
-          <h2 className="text-xl font-semibold text-light-main mb-2">
-            {title}
-          </h2>
-          <p className="text-base text-[#797979] italic">{author}</p>
+          <h2 className="text-tagline text-ink">{title}</h2>
+          <p className="mt-1 text-caption text-ink-fine">{author}</p>
         </div>
-        <div>
-          <div className="text-brand-main flex items-center">
-            Read more
-            <Icon
-              icon={"material-symbols:arrow-right-alt"}
-              className="w-6 h-6 ml-2 transform rotate-[-45deg]"
-            />
-          </div>
-        </div>
+        <span className="btn-link text-caption">
+          Read more
+          <Icon icon="material-symbols:arrow-right-alt" className="h-4 w-4 -rotate-45" />
+        </span>
       </Link>
-    </div>
+    </article>
   );
 };
 

@@ -83,7 +83,7 @@ const organizationData = [
         content: (
           <div>
             <Image
-              src="images/organization.png"
+              src="/images/organization.png"
               width={0}
               height={0}
               sizes="100%"
@@ -307,81 +307,94 @@ const ProfileOrganization = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   return (
-    <div className="flex flex-col lg:flex-row p-4 mt-44">
-      <div className="w-full lg:w-1/4 mb-4 lg:mb-0 lg:mr-4">
-        <h2 className="text-sm w-full text-center mb-4 bg-white rounded-lg py-4">
-          Tahun Kepengurusan
-        </h2>
-        <ul className="space-y-2">
-          {organizationData[0].years.map((year) => (
-            <li key={year}>
-              <button
-                className={`w-full text-center py-4 px-4 rounded-lg ${
-                  activeYear === year
-                    ? "border-2 border-green-500 bg-white"
-                    : "bg-white"
-                }`}
-                onClick={() => setActiveYear(year)}
-              >
-                {year}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="w-full lg:w-3/4">
-        <div className="mb-4 p-4 bg-white rounded-lg shadow-sm">
-          <h3 className="font-bold text-lg text-brand-main">Nama Organisasi</h3>
-          <p>
-            Himpunan Mahasiswa Teknik Informatika Universitas Paramadina (HIMTI
-            Paramadina).
-          </p>
-          <h3 className="font-bold text-lg mt-4 text-brand-main">
-            Deskripsi Organisasi
-          </h3>
-          <p>
-            HIMTI Paramadina merupakan organisasi kemahasiswaan tingkat jurusan
-            atau program studi, yaitu program studi Teknik Informatika. HIMTI
-            Paramadina dapat dikategorikan sebagai kegiatan ekstrakurikuler
-            mahasiswa jurusan di tingkat perguruan tinggi.
-          </p>
-          <p>
-            Kegiatan yang dilakukan Himpunan Mahasiswa –khususnya HIMTI– selalu
-            berkaitan dengan konteks keilmuan, penalaran, pengembangan bakat,
-            dan profesionalisme mahasiswa sebelum terjun ke masyarakat.
+    <div className="w-full">
+      <section className="tile-light section">
+        <div className="container-narrow">
+          <p className="eyebrow">Himtipedia</p>
+          <h1 className="heading-lg mt-3">Profil Organisasi</h1>
+          <p className="body-copy mt-4 max-w-2xl">
+            Sejarah, visi, misi, dan struktur HIMTI Paramadina dari masa ke masa.
           </p>
         </div>
+      </section>
 
-        {organizationData[0].sections.map((section, index) => (
-          <div key={index} className="mb-4 bg-white ">
-            <button
-              className="flex justify-between w-full p-4 text-brand-main text-left rounded-lg"
-              onClick={() =>
-                setActiveSection(
-                  activeSection === section.title ? null : section.title
-                )
-              }
-            >
-              <span className="font-semibold">{section.title}</span>
-              <Image
-                src="/images/dropdown.svg"
-                alt="Dropdown Icon"
-                width={32}
-                height={32}
-                className={`transition-transform ${
-                  activeSection === section.title ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-            {activeSection === section.title && (
-              <div className="p-4 bg-white rounded-b-lg shadow-lg">
-                <p>{section.content}</p>
+      <section className="tile-parchment section">
+        <div className="container-page flex flex-col gap-8 lg:flex-row">
+          <aside className="w-full shrink-0 lg:sticky lg:top-[120px] lg:w-64 lg:self-start">
+            <h2 className="mb-4 text-caption-strong uppercase tracking-[0.08em] text-ink-fine">
+              Tahun Kepengurusan
+            </h2>
+            <ul className="flex flex-wrap gap-2 lg:flex-col">
+              {organizationData[0].years.map((year) => (
+                <li key={year}>
+                  <button
+                    type="button"
+                    className={`w-full rounded-md border px-4 py-3 text-left text-caption transition-colors ${
+                      activeYear === year
+                        ? "border-brand-secondary bg-surface-canvas text-brand-link"
+                        : "border-hairline bg-surface-canvas text-ink-muted hover:border-ink/25"
+                    }`}
+                    onClick={() => setActiveYear(year)}
+                  >
+                    {year}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </aside>
+
+          <div className="w-full min-w-0">
+            <div className="card mb-4 p-6 sm:p-8">
+              <h2 className="text-body-strong text-brand-link">Nama Organisasi</h2>
+              <p className="body-copy mt-2">
+                Himpunan Mahasiswa Teknik Informatika Universitas Paramadina
+                (HIMTI Paramadina).
+              </p>
+
+              <h2 className="mt-6 text-body-strong text-brand-link">Deskripsi Organisasi</h2>
+              <p className="body-copy mt-2">
+                HIMTI Paramadina merupakan organisasi kemahasiswaan tingkat
+                jurusan atau program studi, yaitu program studi Teknik
+                Informatika. HIMTI Paramadina dapat dikategorikan sebagai
+                kegiatan ekstrakurikuler mahasiswa jurusan di tingkat perguruan
+                tinggi.
+              </p>
+              <p className="body-copy mt-3">
+                Kegiatan yang dilakukan Himpunan Mahasiswa –khususnya HIMTI–
+                selalu berkaitan dengan konteks keilmuan, penalaran,
+                pengembangan bakat, dan profesionalisme mahasiswa sebelum terjun
+                ke masyarakat.
+              </p>
+            </div>
+
+            {organizationData[0].sections.map((section) => (
+              <div key={section.title} className="card mb-4 overflow-hidden">
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6"
+                  onClick={() =>
+                    setActiveSection(activeSection === section.title ? null : section.title)
+                  }
+                >
+                  <span className="text-tagline text-ink">{section.title}</span>
+                  <Image
+                    src="/images/dropdown.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                    className={`transition-transform ${activeSection === section.title ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {activeSection === section.title && (
+                  <div className="border-t border-hairline p-5 text-body text-ink-muted sm:p-6 [&_h3]:mt-4 [&_h3]:font-semibold [&_h3]:text-ink [&_h4]:mt-4 [&_h4]:font-semibold [&_h4]:text-ink [&_li]:mb-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5">
+                    {section.content}
+                  </div>
+                )}
               </div>
-            )}
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      </section>
     </div>
   );
 };

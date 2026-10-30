@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 
 interface NavItem {
   name: string;
@@ -17,157 +17,99 @@ const nav: NavItem[] = [
   { name: "About Us", href: "/about" },
   { name: "Division", href: "/division" },
   { name: "Program Kerja", href: "/proker" },
+  { name: "Himtipedia", href: "/himtipedia" },
   { name: "Contact Us", href: "/contact-us" },
 ];
 
 export default function NavigationBar() {
   const pathname = usePathname();
-  const [showFirst, setShowFirst] = useState(true);
-  const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => setShowFirst((prev) => !prev), 3500);
-    return () => clearInterval(interval);
-  }, []);
+    setIsOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isActive = (href: string) => pathname === href;
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-3 sm:pt-4 transition-all duration-300">
-      <motion.nav
-        initial={{ y: -30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`max-w-5xl mx-auto rounded-full px-4 sm:px-6 py-2 transition-all duration-300 flex items-center justify-between border ${
+    <>
+      <header
+        className={`pointer-events-none fixed inset-x-0 z-50 transition-all duration-300 ease-apple ${
           scrolled
-            ? "bg-black/60 backdrop-blur-2xl border-white/20 shadow-[0_12px_40px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.25)]"
-            : "bg-white/[0.05] backdrop-blur-xl border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.37),inset_0_1px_1px_rgba(255,255,255,0.18)]"
+            ? "top-3 bg-transparent"
+            : "top-0 bg-transparent tablet:bg-surface-dark"
         }`}
       >
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-9 h-9 sm:w-10 sm:h-10 overflow-hidden flex items-center justify-center rounded-full bg-white/10 border border-white/15">
-            <AnimatePresence mode="wait">
-              {showFirst ? (
-                <motion.div
-                  key="logo1"
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.85 }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute inset-0 flex items-center justify-center p-1"
-                >
-                  <Image
-                    src="/images/logo.svg"
-                    alt="HIMTI"
-                    width={32}
-                    height={32}
-                    priority
-                    className="object-contain"
-                  />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="logo2"
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.85 }}
-                  transition={{ duration: 0.4 }}
-                  className="absolute inset-0 flex items-center justify-center p-1"
-                >
-                  <Image
-                    src="/images/logo_kabinet.png"
-                    alt="Innovara"
-                    width={32}
-                    height={32}
-                    priority
-                    className="object-contain"
-                  />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-          <span className="font-semibold text-xs sm:text-sm tracking-wide text-white/90 group-hover:text-white transition">
-            HIMTI <span className="text-green-500 font-bold">INNOVARA</span>
-          </span>
-        </Link>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-1">
-          {nav.map((item, i) => {
-            const active = isActive(item.href);
-            return (
-              <li key={i}>
-                <Link
-                  href={item.href}
-                  className={`relative px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200 ${
-                    active
-                      ? "text-white bg-white/15 border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)]"
-                      : "text-white/70 hover:text-white hover:bg-white/5"
+        <nav aria-label="Navigasi utama" className="container-page">
+          <div
+            className={`pointer-events-auto flex items-center justify-between gap-3 text-ink-on-dark transition-all duration-300 ease-apple tablet:grid tablet:grid-cols-[1fr_auto_1fr] ${
+              scrolled
+                ? "h-14 rounded-full bg-transparent pr-0 tablet:h-16 tablet:rounded-full tablet:bg-surface-dark/95 tablet:pr-2 tablet:shadow-product tablet:backdrop-blur-xl"
+                : "h-14 rounded-none bg-transparent pr-0 tablet:bg-transparent"
+            }`}
+          >
+            <Link
+              href="/"
+              className={`flex h-full shrink-0 items-center transition-all duration-300 ease-apple ${
+                scrolled ? "pl-1.5 sm:pl-2" : "gap-2.5"
+              }`}
+            >
+              <span
+                className={`flex items-center justify-center transition-all duration-300 ease-apple ${
+                  scrolled
+                    ? "h-11 w-11 rounded-full bg-surface-canvas sm:h-12 sm:w-12"
+                    : "h-auto w-auto rounded-none bg-transparent"
+                }`}
+              >
+                <Image
+                  src="/images/logo.svg"
+                  alt=""
+                  width={80}
+                  height={36}
+                  priority
+                  className={`w-auto transition-all duration-300 ease-apple ${
+                    scrolled ? "h-6" : "h-8"
                   }`}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+                />
+              </span>
+              <span className="sr-only">HIMTI Innovara — Home</span>
+              <span
+                aria-hidden
+                className={`hidden text-caption-strong tracking-[0.06em] text-ink-on-dark transition-all duration-300 desktop:inline ${
+                  scrolled ? "pointer-events-none w-0 overflow-hidden opacity-0" : "opacity-100"
+                }`}
+              >
+                INNOVARA
+              </span>
+            </Link>
 
-        {/* Action Button */}
-        <div className="hidden md:flex items-center">
-          <Link
-            href="/contact-us"
-            className="text-xs font-medium px-4 py-1.5 rounded-full bg-gradient-to-r from-green-600 to-green-800 text-white border border-white/30 shadow-[0_4px_16px_rgba(42,175,21,0.35),inset_0_1px_0_rgba(255,255,255,0.4)] hover:brightness-110 active:scale-95 transition"
-          >
-            Aspirasi
-          </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-1.5 rounded-full text-white/90 hover:text-white bg-white/10 border border-white/15 backdrop-blur-md"
-            aria-label="Toggle menu"
-          >
-            <Icon
-              icon={isOpen ? "material-symbols:close" : "material-symbols:menu"}
-              className="w-5 h-5"
-            />
-          </motion.button>
-        </div>
-      </motion.nav>
-
-      {/* Mobile Menu Dropdown */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.98 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden mt-2 max-w-5xl mx-auto rounded-3xl bg-black/80 backdrop-blur-2xl border border-white/20 p-4 shadow-[0_20px_50px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.2)]"
-          >
-            <ul className="flex flex-col gap-1">
-              {nav.map((item, i) => {
+            <ul className="hidden items-center gap-6 justify-self-center tablet:flex desktop:gap-8">
+              {nav.map((item) => {
                 const active = isActive(item.href);
                 return (
-                  <li key={i}>
+                  <li key={item.href}>
                     <Link
                       href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`block px-4 py-2.5 rounded-2xl text-sm font-medium transition ${
+                      aria-current={active ? "page" : undefined}
+                      className={`relative transition-colors duration-150 ${
+                        scrolled ? "text-caption" : "text-[13px]"
+                      } ${
                         active
-                          ? "bg-white/15 text-white border border-white/20"
-                          : "text-white/70 hover:bg-white/5 hover:text-white"
+                          ? `text-ink-on-dark after:absolute after:left-1/2 after:h-1 after:w-1 after:-translate-x-1/2 after:rounded-full after:bg-ink-on-dark ${
+                              scrolled ? "after:-bottom-2" : "after:-bottom-2.5"
+                            }`
+                          : scrolled
+                            ? "text-ink-on-dark/75 hover:text-ink-on-dark"
+                            : "text-ink-on-dark/65 hover:text-ink-on-dark"
                       }`}
                     >
                       {item.name}
@@ -176,9 +118,82 @@ export default function NavigationBar() {
                 );
               })}
             </ul>
+
+            <div className="hidden justify-self-end tablet:block">
+              <Link
+                href="/contact-us"
+                className={`group inline-flex items-center gap-1.5 rounded-full font-semibold text-ink transition-all duration-300 ease-apple hover:bg-surface-parchment active:scale-95 ${
+                  scrolled
+                    ? "h-10 bg-surface-canvas px-5 text-[13px] sm:h-11"
+                    : "h-9 bg-surface-canvas px-4 text-[13px] hover:bg-surface-parchment"
+                }`}
+              >
+                Kirim Aspirasi
+                <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-150 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setIsOpen((v) => !v)}
+              aria-label={isOpen ? "Tutup menu" : "Buka menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              className="flex h-10 items-center justify-center gap-2.5 justify-self-end rounded-full bg-brand-subtle px-5 text-[14px] font-semibold text-brand-dark tablet:hidden"
+            >
+              Menu
+              <Menu className="h-4 w-4" />
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            id="mobile-menu"
+            initial={{ opacity: 0, scale: 0.94, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.94, y: -10 }}
+            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed right-5 top-[72px] z-40 w-[min(284px,calc(100vw-40px))] overflow-hidden rounded-[28px] bg-brand-dark px-6 pb-5 pt-7 text-ink-on-dark shadow-product tablet:hidden"
+          >
+            <ul className="flex flex-col items-center gap-1">
+              {nav.map((item) => {
+                const active = isActive(item.href);
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      onClick={() => setIsOpen(false)}
+                      className={`block py-2 text-center text-[18px] font-semibold uppercase tracking-[0.06em] transition-colors duration-150 ${
+                        active
+                          ? "text-brand-subtle"
+                          : "text-ink-on-dark/80 hover:text-ink-on-dark"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <div className="mt-5 flex items-center justify-between pl-1">
+              <span className="text-[14px] font-medium text-ink-on-dark/70">Menu</span>
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                aria-label="Tutup menu"
+                className="flex h-9 w-9 items-center justify-center rounded-full text-ink-on-dark transition-colors hover:bg-ink-on-dark/10"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

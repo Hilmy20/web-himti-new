@@ -3,7 +3,6 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-
 import {
   Brush,
   ClipboardList,
@@ -24,7 +23,7 @@ interface Division {
 const divisions: Division[] = [
   {
     id: 1,
-    name: "Department Creative and Design",
+    name: "Creative and Design",
     icon: Brush,
     image: "/images/creative.png",
     description:
@@ -32,7 +31,7 @@ const divisions: Division[] = [
   },
   {
     id: 2,
-    name: "Department Administration",
+    name: "Administration",
     icon: ClipboardList,
     image: "/images/admin.png",
     description:
@@ -40,7 +39,7 @@ const divisions: Division[] = [
   },
   {
     id: 3,
-    name: "Department Research & Technology",
+    name: "Research & Technology",
     icon: Cpu,
     image: "/images/ristek.png",
     description:
@@ -48,7 +47,7 @@ const divisions: Division[] = [
   },
   {
     id: 4,
-    name: "Department Public Relations and Media",
+    name: "Public Relations and Media",
     icon: Megaphone,
     image: "/images/humas.png",
     description:
@@ -56,7 +55,7 @@ const divisions: Division[] = [
   },
   {
     id: 5,
-    name: "Department Financial",
+    name: "Financial",
     icon: Wallet,
     image: "/images/financial.png",
     description:
@@ -64,7 +63,7 @@ const divisions: Division[] = [
   },
   {
     id: 6,
-    name: "Department Human Capital & Education",
+    name: "Human Capital & Education",
     icon: GraduationCap,
     image: "/images/hc.png",
     description:
@@ -78,72 +77,52 @@ export default function DivisionsFilter() {
 
   const handleSelect = (division: Division) => {
     setSelected(division);
-
-
-    setTimeout(() => {
-      detailRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, 150);
+    setTimeout(() => detailRef.current?.scrollIntoView({ behavior: "smooth" }), 150);
   };
 
   return (
-    <div className="w-full flex flex-col items-center mt-16">
-  
-      <div className="w-full flex justify-center">
-        <div className="bg-neutral-200 p-3 rounded-xl w-[90%] overflow-x-auto">
-          <div className="flex items-center gap-3 w-max">
-            {divisions.map((d) => {
-              const IconComponent = d.icon;
+    <div className="mt-16 flex w-full flex-col items-center">
+      <div className="w-full overflow-x-auto">
+        <div className="mx-auto flex w-max items-center gap-2 rounded-full border border-hairline bg-surface-canvas p-2">
+          {divisions.map((d) => {
+            const IconComponent = d.icon;
+            const isSelected = selected?.id === d.id;
 
-              return (
-                <motion.button
-                  key={d.id}
-                  onClick={() => handleSelect(d)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full whitespace-nowrap transition
-              ${
-                selected?.id === d.id
-                  ? "bg-green-700 text-white"
-                  : "bg-red-500 text-white"
-              }
-            `}
-                >
-                  <div className="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center">
-                    <IconComponent className="text-white w-3.5 h-3.5" />
-                  </div>
-
-                  <span className="text-[11px] font-medium">{d.name}</span>
-                </motion.button>
-              );
-            })}
-          </div>
+            return (
+              <button
+                key={d.id}
+                type="button"
+                onClick={() => handleSelect(d)}
+                className={`chip whitespace-nowrap ${isSelected ? "chip-selected" : ""}`}
+              >
+                <IconComponent className="h-4 w-4 text-brand-link" />
+                <span>{d.name}</span>
+              </button>
+            );
+          })}
         </div>
       </div>
 
-   
-      <div ref={detailRef} className="w-full flex justify-center mt-16 mb-20">
+      <div ref={detailRef} className="mt-16 flex w-full justify-center">
         <AnimatePresence mode="wait">
           {selected && (
             <motion.div
               key={selected.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 40 }}
-              transition={{ duration: 0.35 }}
-              className="text-white shadow-lg p-10 rounded-2xl w-[80%] max-w-3xl text-center"
+              exit={{ opacity: 0, y: 16 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="card w-full max-w-3xl p-8 text-center"
             >
               <Image
                 src={selected.image}
                 width={220}
                 height={220}
                 alt={selected.name}
-                className="mx-auto mb-6 rounded-lg"
+                className="mx-auto mb-6 rounded-sm"
               />
-
-              <h2 className="text-2xl font-bold mb-3">{selected.name}</h2>
-              <p className="text-neutral-700 leading-relaxed">
-                {selected.description}
-              </p>
+              <h2 className="text-tagline text-ink">{selected.name}</h2>
+              <p className="body-copy mt-3">{selected.description}</p>
             </motion.div>
           )}
         </AnimatePresence>

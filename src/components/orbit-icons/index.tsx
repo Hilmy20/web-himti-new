@@ -28,35 +28,23 @@ export default function OrbitIcons() {
   return (
     <div
       className="
-        relative
-        w-[220px] h-[220px]
-        sm:w-[300px] sm:h-[300px]
-        md:w-[380px] md:h-[380px]
-        mx-auto mt-10 select-none
-
-        /* --- RESPONSIVE ORBIT RADIUS --- */
-        [--radius:110px]      /* MOBILE */
-        sm:[--radius:135px]  /* TABLET */
-        md:[--radius:180px]  /* DESKTOP */
+        relative mx-auto mt-8 h-[220px] w-[220px] select-none
+        sm:h-[300px] sm:w-[300px]
+        md:h-[380px] md:w-[380px]
+        [--radius:110px] sm:[--radius:135px] md:[--radius:180px]
       "
+      aria-hidden
     >
       <motion.div
         className="absolute inset-0"
         animate={{ rotate: 360 }}
-        transition={{
-          repeat: Infinity,
-          duration: 20,
-          ease: "linear",
-        }}
+        transition={{ repeat: Infinity, duration: 24, ease: "linear" }}
       >
-        <div className="w-full h-full rounded-full border-[3px] border-green-600/60 absolute" />
+        <div className="absolute h-full w-full rounded-full border border-brand-secondary/30" />
 
-        {/* --- ICONS ON ORBIT --- */}
         {icons.map((item, index) => {
           const Icon = item.icon;
           const angle = (index / icons.length) * 2 * Math.PI;
-
-          // Posisi orbit pakai CSS variable
           const x = Math.cos(angle);
           const y = Math.sin(angle);
 
@@ -72,42 +60,25 @@ export default function OrbitIcons() {
             >
               <motion.div
                 animate={{ rotate: -360 }}
-                transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-                className="
-                  rounded-full bg-[#0D6EFD] flex items-center justify-center shadow-md
-
-                  w-10 h-10
-                  sm:w-12 sm:h-12
-                  md:w-14 md:h-14
-                "
+                transition={{ repeat: Infinity, duration: 24, ease: "linear" }}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-primary sm:h-12 sm:w-12 md:h-14 md:w-14"
               >
-                <Icon
-                  className="
-                    text-white
-                    w-5 h-5
-                    sm:w-6 sm:h-6
-                    md:w-7 md:h-7
-                  "
-                />
+                <Icon className="h-5 w-5 text-ink sm:h-6 sm:w-6 md:h-7 md:w-7" />
               </motion.div>
             </div>
           );
         })}
       </motion.div>
 
-      {/* --- CENTER LOGO --- */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-green-500/40 rounded-full blur-xl absolute"></div>
-
+        <div className="absolute flex h-24 w-24 items-center justify-center rounded-full bg-surface-parchment sm:h-28 sm:w-28 md:h-32 md:w-32" />
         <div className="relative z-10">
           <Image
             src="/images/kabinet_innovara.svg"
             width={200}
             height={200}
-            alt="center icon"
-            className="drop-shadow-lg
-              w-16 sm:w-20 md:w-24
-            "
+            alt="Kabinet Innovara"
+            className="w-16 sm:w-20 md:w-24"
           />
         </div>
       </div>
