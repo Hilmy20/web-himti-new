@@ -49,6 +49,7 @@ const departments = [
       "/images/divisi/DPRM_4.png",
       "/images/divisi/DPRM_5.png",
       "/images/divisi/DPRM_6.png",
+      "/images/divisi/DPRM_7.png",
     ],
   },
   {
@@ -62,7 +63,7 @@ const departments = [
       "/images/divisi/DRT_2.png",
       "/images/divisi/DRT_3.png",
       "/images/divisi/DRT_4.png",
-      "/images/divisi/DRT_5.png",
+      "/images/divisi/DRT_6.png",
     ],
   },
   {

@@ -107,11 +107,9 @@ export default function KontakKami() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-[#e7ece4]">
-      <div className="container-page relative py-6 sm:py-10">
-        <div className="w-full overflow-hidden rounded-lg bg-surface-canvas">
+    <div className="relative w-full overflow-hidden bg-surface-canvas">
           {/* Hero */}
-          <section className="pb-10 pt-14 text-center sm:pt-20">
+          <section className="container-page pb-10 pt-14 text-center sm:pt-20">
             <motion.h1 {...reveal()} className="mx-auto max-w-[900px] font-display text-[clamp(40px,7.5vw,96px)] font-semibold leading-[1.03] tracking-[-0.02em] text-ink">
               Kami siap mendengar
             </motion.h1>
@@ -161,7 +159,7 @@ export default function KontakKami() {
           </section>
 
           {/* Contact intro */}
-          <section className="py-14 text-center sm:py-16">
+          <section className="container-page py-14 text-center sm:py-16">
             <motion.span {...reveal()} className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-brand-dark">
               <MessageCircle className="h-5 w-5 text-brand-light" />
             </motion.span>
@@ -192,7 +190,7 @@ export default function KontakKami() {
           </section>
 
           {/* Form + info */}
-          <section id="form" className="scroll-mt-24 pb-14 sm:pb-20">
+          <section id="form" className="container-page scroll-mt-24 pb-14 sm:pb-20">
             <div className="mx-auto grid max-w-[980px] grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-14">
               <motion.div {...reveal()} className="rounded-none bg-surface-parchment p-6 sm:rounded-lg sm:p-8">
                 <h3 className="text-tagline text-ink">Kirim pesan</h3>
@@ -377,8 +375,6 @@ export default function KontakKami() {
               </motion.aside>
             </div>
           </section>
-        </div>
-      </div>
     </div>
   );
 }
